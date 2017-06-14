@@ -7,29 +7,31 @@
         <h2>Add New Category</h2>
     </div>
     <form method="post" enctype="multipart/form-data">
-    <div class="row" style="margin-top:30px;">
-        <div class="form-group col-md-5 col-md-offset-4">
-            <label for="newCatagory" class="addCatLabel">Name</label>
-            <input type="text" class="form-control" [(ngModel)]="name"  name="categoryName"  placeholder="enter category name...">
+        <div class="row" style="margin-top:30px;">
+            <div class="form-group col-md-5 col-md-offset-4">
+                <label for="newCatagory" class="addCatLabel">Name</label>
+                <input type="text" class="form-control" [(ngModel)]="name" name="categoryName" placeholder="enter category name...">
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-5 col-md-offset-4">
-            <label for="descCatagory" class="addCatLabel">Descriptation</label>
-            <input type="text" class="form-control" [(ngModel)]="description" name="categorydesc"   placeholder="enter category descripation..">
+        <div class="row">
+            <div class="form-group col-md-5 col-md-offset-4">
+                <label for="descCatagory" class="addCatLabel">Descriptation</label>
+                <input type="text" class="form-control" [(ngModel)]="description" name="categorydesc" placeholder="enter category descripation..">
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-5 col-md-offset-4">
-            <label for="categoryimage">Add image</label>
-                  <input type="file"  [name]="uploadFieldName" (change)="filesChange($event.target.name, $event.target.files)" [disabled]="currentStatus === STATUS_SAVING" accept="image/*" #photos>
+        <div class="row">
+            <div class="form-group col-md-5 col-md-offset-4">
+                <label for="categoryimage">Add image</label>
+                <input id="photo" type="file" />
+                <button type="button" class="btn btn-success btn-s" (click)="upload()">upload image
+            </button>
 
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-5 col-md-offset-6">
-            <button type="submit" class="btn btn-success" (click)="Addcatagory()">Add</button>
+        <div class="row">
+            <div class="col-md-5 col-md-offset-6">
+                <button type="submit" class="btn btn-success" (click)="Addcatagory()">Add</button>
+            </div>
         </div>
-    </div>
     </form>
 </section>
