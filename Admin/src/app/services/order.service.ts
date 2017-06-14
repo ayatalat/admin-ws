@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 export class OrderService {
     public orders: any = [];
    
-    orderUrl = "http://localhost:3000/orders";
+    orderUrl = "https://storewebservice.herokuapp.com/orders";
     constructor(private http: Http, private activatedRoute: ActivatedRoute) {
        this.getAllOrders();
 

@@ -8,9 +8,9 @@ export class SubcategoryService {
 
    public subCategories=[];
    private name:string;
-   subcategoryurl="http://localhost:3000/subCategories"
-   categoryurl= "http://localhost:3000/Categories"
-       producturl = "http://localhost:3000/products";
+   subcategoryurl="https://storewebservice.herokuapp.com/subCategories"
+   categoryurl= "https://storewebservice.herokuapp.com/categories"
+       producturl = "https://storewebservice.herokuapp.com/products";
 
     constructor(private http: Http) {
         this.getAllSubcategory();

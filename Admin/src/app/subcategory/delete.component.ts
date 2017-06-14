@@ -23,7 +23,7 @@ export class deleteComponent {
 
     }
     ngOnInit() {
-      //  this.loginService.checkCredentials();
+       this.loginService.checkCredentials();
         this.sub = this.route.params.subscribe(params => {
             this.oldidsubcategory = +params['id'];
             console.log("old",this.oldidsubcategory);

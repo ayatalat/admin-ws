@@ -14,7 +14,7 @@ export class AdminComponent {
 
   constructor(private loginService: LoginService) {}
   ngOnInit(){
-     //   this.loginService.checkCredentials();
+     this.loginService.checkCredentials();
     }
   logout()
   {

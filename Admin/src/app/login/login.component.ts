@@ -16,7 +16,7 @@ export class AuthComponent {
     constructor(private router: Router,
         private login: LoginService) {
            this.login.getAdmin();
-        //console.log(this.login.adminId);
+        console.log(this.login.adminEmail);
          }
     
     adminCheck(){

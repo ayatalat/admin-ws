@@ -9,19 +9,21 @@ export class LoginService {
 
     public users: any = [];
     public adminUser: any;
-    public adminId = 3;
-    loginUrl = "http://localhost:3000/users";
+    public adminEmail="admin@gmail.com";
+
+    loginUrl = "https://storewebservice.herokuapp.com/users";
     constructor(private http: Http, private router: Router) {
 
     }
 
     getAdmin() {
 
-        this.http.get(`${this.loginUrl}/${this.adminId}`).map((response: Response) => response.json())
+        this.http.get(`${this.loginUrl}/${this.adminEmail}`).map((response: Response) => response.json())
             .subscribe(data => {
-                this.adminUser= data;
-               
-             console.log(`the data ${this.adminUser.email}`);
+               this.adminUser= data;
+               console.log("adminuser",this.adminUser);
+            
+             console.log(`the data is ${this.adminUser[0].email}`);
             },
             err => console.log(`error happened getting users ${err}`)
             );
@@ -34,8 +36,8 @@ export class LoginService {
  
   login(email,password){
       console.log("email from form ",email);
-      console.log("email from database ",this.adminUser.email);
-    if (this.adminUser.email == email && this.adminUser.password == password){
+      console.log("email from database ",this.adminUser[0].email);
+    if (this.adminUser[0].email == email && this.adminUser[0].password == password){
       localStorage.setItem("user", this.adminUser);
      // console.log(localStorage.setItem("user",this.adminUser));
       this.router.navigate(['/home']);   

@@ -7,8 +7,8 @@ export class CatService {
     public catagories: any = [];
     name: string;
     //https://storewebservice.herokuapp.com/categories
-    categoryUrl = "http://localhost:3000/Categories";
-    producturl = "http://localhost:3000/products";
+    categoryUrl = "https://storewebservice.herokuapp.com/categories";
+    producturl = "https://storewebservice.herokuapp.com/products";
     constructor(private http: Http) {
         this.getAllCat();
     }

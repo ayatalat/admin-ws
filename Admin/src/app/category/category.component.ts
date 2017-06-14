@@ -12,7 +12,7 @@ export class CatComponent {
     constructor(private catservice: CatService, private loginService: LoginService, private http: Http, private router: Router) {
     }
     ngOnInit(){
-//this.loginService.checkCredentials();
+this.loginService.checkCredentials();
     }
     ListCategory() {
         return this.catservice.categories;

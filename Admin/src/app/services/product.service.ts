@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ProductService {
     public products: any = [];
-    storeUrl = "http://localhost:3000/products";
+    storeUrl = "https://storewebservice.herokuapp.com/products";
     constructor(private http: Http, private router: Router) {
         console.log('product service constructor');
         this.getProducts();

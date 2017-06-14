@@ -20,7 +20,7 @@ export class AddsubCatagory {
     constructor(private subcatservice: SubcategoryService, private catservice: CatService, private loginService: LoginService, private http: Http, private router: Router) {
     }
     ngOnInit() {
-        //this.loginService.checkCredentials();
+        this.loginService.checkCredentials();
     }
     onChange(newValue) {
         console.log(newValue);

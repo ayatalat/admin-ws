@@ -12,7 +12,7 @@ export class listsubcategory {
     constructor(private subcatservice:SubcategoryService, private loginService: LoginService, private http: Http, private router: Router) {
     }
     ngOnInit(){
-        //this.loginService.checkCredentials();
+        this.loginService.checkCredentials();
     }
     ListsubCategory() {
         return this.subcatservice.subCategories;

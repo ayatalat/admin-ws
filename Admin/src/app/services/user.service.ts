@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 export class UserService {
     public users: any = [];
    
-    userUrl = "http://localhost:3000/users";
+    userUrl = "https://storewebservice.herokuapp.com/users";
     constructor(private http: Http) {
         this.getallusers();
     }

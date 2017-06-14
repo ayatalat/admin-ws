@@ -19,7 +19,7 @@ export class EditCatagory {
     constructor(private catservice: CatService, private loginService: LoginService, private http: Http, private router: ActivatedRoute, private route: Router) {
     }
     ngOnInit() {
-        // this.loginService.checkCredentials();
+         this.loginService.checkCredentials();
         this.sub = this.router.params.subscribe(params => {
             this.id = +params['id'];
             console.log(this.id);

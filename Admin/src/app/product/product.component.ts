@@ -13,7 +13,7 @@ export class Product {
       this.getProducts();
   }
   ngOnInit(){
-        this.loginService.checkCredentials();
+       this.loginService.checkCredentials();
     }
   getProducts()
   {

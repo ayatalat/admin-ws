@@ -12,7 +12,7 @@ var user={
     	console.log(db.query('select * from user where status !=0',callback));
     },
     getuseremail:function(email,callback){
-      return db.query('select iduser from user where email=?',[email],callback);
+      return db.query('select * from user where email=?',[email],callback);
     }
 }
 module.exports=user;
