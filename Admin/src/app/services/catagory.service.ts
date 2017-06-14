@@ -38,13 +38,13 @@ export class CatService {
         return this.http.get(this.categoryUrl+"/"+ id).map((respone:Response)=>respone.json())
     }
 
-    EditCatagory(id: number, name: string, desc: string) {
+    EditCatagory(id: number, name: string, desc: string,image:string) {
         if (name != "") {
             let newcatagory = {
                 "name": name,
                 "categorydesc": desc,
                 "status": 1,
-                "image": "image"
+                "image": image
             }
             this.http.put(this.categoryUrl + "/" + id, newcatagory).map((response: Response) => response.json())
                 .subscribe(

@@ -12,7 +12,7 @@ import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
     templateUrl: './addcatagory.component.html'
 })
 export class AddCatagory {
-     URL = 'https://storewebservice.herokuapp.com';
+     URL = 'https://storewebservice.herokuapp.com/';
 
     name: string = '';
     description: any = '';
