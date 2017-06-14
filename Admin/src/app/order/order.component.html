@@ -1,0 +1,25 @@
+<app-Admin></app-Admin>
+<!-- end header -->
+
+<!-- content section -->
+<section id="main-content">
+    <section class="wrapper">
+        <div id="content-head"> 
+         <h2> orders </h2>
+        </div>
+        <div class="row">
+            <table class="table table-bordered">
+                <tr id="main-tr">
+                    <td>Date Added</td>
+                    <td>Date Delivered</td>
+                    <td>Date selected </td>
+                </tr>
+                <tr *ngFor="let order of listOrders()">
+                    <td>{{order.ordertime | date:'short'}}</td>
+                    <td>{{order.deliverytime | date:'short'}}</td>
+                    <td> {{order.selectedtime | date:'short'}} </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</section>

@@ -1,0 +1,27 @@
+<app-Admin></app-Admin>
+<!-- end header -->
+
+<!-- content section -->
+<section id="main-content">
+    <section class="wrapper">
+        <div id="content-head">
+         <h2> Users </h2>
+        </div>
+        <div class="row">
+            <table class="table table-bordered">
+                <tr id="main-tr">
+                    <td>name</td>
+                    <td>email</td>
+                    <td>action</td>
+                </tr>
+                <tr *ngFor="let user of getusers()">
+                    <td>{{user.name}}</td>
+                    <td>{{ user.email}}</td>
+                    <td>
+                        <a [routerLink]="['/orders/showorder',user.iduser]" class="btn btn-primary">show orders</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</section>

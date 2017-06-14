@@ -1,0 +1,42 @@
+<app-Admin></app-Admin>
+
+<!-- end header -->
+<!-- content section -->
+<section id="Category">
+    <div id="CatContent-head">
+        <h2>Add New sub Category</h2>
+    </div>
+    <form method="post"  enctype="multipart/form-data">
+    <div class="col-md-5 col-md-offset-4" style="margin-top:30px;">
+            <label for="sel1" class="addCatLabel">Select list:</label>
+            <select class="form-control" id="sel1"  name="selectcategory" [ngModel]="selectedoption" (ngModelChange)="onChange($event)">
+        <option *ngFor="let catagory of ListCategory()">
+                {{catagory.name}}
+        </option>
+    </select>
+    </div>
+    <div class="row" style="margin-top:30px;">
+        <div class="form-group col-md-5 col-md-offset-4">
+            <label for="newCatagory" class="addCatLabel">Name</label>
+            <input type="text" class="form-control" [(ngModel)]="name"  name="categoryName"  placeholder="enter category name...">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-5 col-md-offset-4">
+            <label for="descCatagory" class="addCatLabel">Descriptation</label>
+            <input type="text" class="form-control" [(ngModel)]="description" name="categorydesc"   placeholder="enter category descripation..">
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="form-group col-md-5 col-md-offset-4">
+            <label for="categoryimage">Add image</label>
+            <input type="file" class="form-control-file"   name="categortyimage" (change)="filechange(input)" #input>
+        </div>
+    </div>-->
+    <div class="row">
+        <div class="col-md-5 col-md-offset-6">
+            <button type="submit" class="btn btn-success" (click)="Addsubcatagory()">Add</button>
+        </div>
+    </div>
+    </form>
+</section>

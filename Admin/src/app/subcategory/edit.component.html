@@ -1,0 +1,35 @@
+<app-Admin></app-Admin>
+<!-- end header -->
+
+<!-- content section -->
+<section id="addCategory" style="margin:100px;">
+  
+    <div class="row" style="margin-top:30px;">
+    <div class="form-group col-md-5 col-md-offset-4">
+        <label for="newCatagory" class="addCatLabel">Name</label>
+        <input type="text" name="catname" class="form-control" placeholder="name" [(ngModel)]="name" #catname="ngModel" />
+    </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-5 col-md-offset-4">
+            <label for="descCatagory" class="addCatLabel">Descriptation</label>
+            <input type="text" name="descr" class="form-control" placeholder="descripation" [(ngModel)]="descripation" #desc="ngModel"
+            />
+        </div>
+    </div>
+     
+        <div class="col-md-5 col-md-offset-4" style="margin-top:30px;">
+            <label for="sel1" class="addCatLabel">change super category:</label>
+            <select class="form-control" id="sel1" [ngModel]="selectedoption" (ngModelChange)="onChange($event)">
+        <option *ngFor="let catagory of ListCategory()">
+                {{catagory.name}}
+        </option>
+    </select>
+        </div>
+    <div class="row">
+        <div class="col-md-5 col-md-offset-6">
+            <button type="submit" class="btn btn-success" (click)="EditsubCatagory(catname.value,desc.value)">Edit</button>
+        </div>
+    </div>
+
+</section>

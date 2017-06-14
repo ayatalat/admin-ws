@@ -1,0 +1,31 @@
+<app-Admin></app-Admin>
+<!-- end header -->
+
+<!-- content section -->
+<section id="main-content">
+    <section class="wrapper">
+        <div id="content-head">
+         <h2> subCategories </h2>
+        </div>
+       <div class="row">
+            <table class="table table-bordered">
+                <tr id="main-tr">
+                    <td>name</td>
+                    <td>Descriptation</td>
+                    <td> image </td>
+                    <td> action</td>
+                   
+                </tr>
+                <tr *ngFor="let subcategory of ListsubCategory();">
+                    <td>{{subcategory.name}}</td>
+                    <td>{{subcategory.categorydesc}}</td>
+                    <td> {{subcategory.image}} </td>
+                    <td><a [routerLink]="['/subcategory/edit',subcategory.idcategory]" class="btn btn-primary">Edit</a>
+                   <a [routerLink]="['/subcategory/delete',subcategory.idcategory]" class="btn btn-danger" >remove</a></td>
+                 
+                   
+                </tr>
+            </table>
+        </div>
+    </section>
+</section>

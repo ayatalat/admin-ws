@@ -1,0 +1,39 @@
+<app-Admin></app-Admin>
+    <!-- end header -->
+    <!-- content section -->
+
+<section id="main-content">
+    <section class="wrapper">
+        <div id="content-head"> 
+         <h2> Products </h2>
+        </div>
+        <div class="row">
+            <table class="table table-bordered">
+                <tr id="main-tr">
+                    <td> id </td>
+                    <td> name </td>
+                    <td> barcode </td>
+                    <td> price </td>
+                    <td>Quantity </td>
+                    <td> image </td>
+                    <td> description </td>
+                    <td> action </td>
+                </tr>
+                <tr *ngFor="let product of getProducts();let index = index">
+                    <td id="id">{{index+1}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.barcode}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.image}}</td>
+                    <td>{{product.description}}</td>
+                    <td>
+                        <a [routerLink]="['/products/edit',product.idproduct]" class="btn btn-success">Edit</a>
+                        <button type="button" (click)="removeProduct(product.idproduct)" class="btn btn-danger">remove</button> 
+                        
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</section>

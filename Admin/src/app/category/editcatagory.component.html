@@ -1,0 +1,28 @@
+<app-Admin></app-Admin>
+<!-- end header -->
+
+<!-- content section -->
+<section id="Category" style="margin:100px;">
+    <div id="CatContent-head">
+  <h3 class="h3"> Edit category </h3>
+    <div class="row" style="margin-top:30px;">
+    <div class="form-group col-md-5 col-md-offset-4">
+        <label for="newCatagory" class="addCatLabel">Name</label>
+        <input type="text" name="catname" class="form-control" placeholder="name" [(ngModel)]="name" #catname="ngModel" />
+    </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-5 col-md-offset-4">
+            <label for="descCatagory" class="addCatLabel">Descriptation</label>
+            <input type="text" name="descr" class="form-control" placeholder="descripation" [(ngModel)]="descripation" #desc="ngModel"
+            />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 col-md-offset-6">
+            <button type="submit" class="btn btn-success btn-lg" (click)="EditCatagory(catname.value,desc.value)">Edit</button>
+        </div>
+    </div>
+    </div>
+</section>
