@@ -9,7 +9,7 @@ return db.query("Select * from category where idsupercategory IS NOT NULL AND st
 ,
 getSubCategoryById:function(idcategory,callback){
 
-    return db.query("select * from category where idcategory=? AND status !=0 ",[idcategory],callback);
+    return db.query("select * from category where idsupercategory=? AND status !=0 ",[idcategory],callback);
 },
 
 addSubNewCategory:function(subcategory,callback){
