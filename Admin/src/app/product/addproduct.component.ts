@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['../product/addproduct.component.css']
 })
 export class AddProduct {
-    URL = 'http://localhost:3000/';
+    URL = 'https://storewebservice.herokuapp.com';
   productName = "";
   productBarcode = "";
   productPrice = "";
