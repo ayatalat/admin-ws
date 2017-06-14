@@ -18,7 +18,7 @@
                 <tr *ngFor="let category of ListCategory()">
                     <td>{{category.name}}</td>
                     <td>{{ category.categorydesc}}</td>
-                    <td><img [src]="category.image" /></td>
+                    <td><img [src]="category.image"  style="width:100px; height:100px;" /></td>
                     <td>
                         <a [routerLink]="['/catagory/edit',category.idcategory]" class="btn btn-primary">Edit</a>
                         <button (click)="deletecategory(category.idcategory)" class="btn btn-danger" >remove</button>

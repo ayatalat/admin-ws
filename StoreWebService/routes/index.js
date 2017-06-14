@@ -15,12 +15,18 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/uploads/:imagename', function (req, res, next) {
-
-  var file = "/uploads/" + req.params.imagename;
-  var img = fs.readFileSync(file);
-  res.writeHead(200, { 'Content-Type': 'image/jpg' });
-  res.end(img, 'binary');
-
+    console.log(req.route.path);
+console.log(req.params.imagename);
+var file=DIR+req.params.imagename ;
+console.log(file)
+    fs.readFile(file,function(err,data){
+      if(err){
+        console.log(err);
+        res.json(err);
+      }else{
+        res.end(data);
+      }
+    })
 
 })
 router.post('/', function (req, res, next) {

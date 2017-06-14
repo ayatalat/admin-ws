@@ -25,7 +25,7 @@
                     <td>{{product.barcode}}</td>
                     <td>{{product.price}}</td>
                     <td>{{product.quantity}}</td>
-                    <td>{{product.image}}</td>
+                    <td><img [src]="product.image" style="width:100px; height:100px;" /></td>
                     <td>{{product.description}}</td>
                     <td>
                         <a [routerLink]="['/products/edit',product.idproduct]" class="btn btn-success">Edit</a>
