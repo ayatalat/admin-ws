@@ -102,11 +102,11 @@ export class ProductService {
             let body = {
                 "quantity": productQuantityUpdate
             }
-            this.http.put(this.storeUrl + "edit" + "/" + "quantity" + "/" + id, body).map((response: Response) => response.json())
+            this.http.put(this.storeUrl + "/" + "edit" + "/" + "quantity" + "/" + id, body).map((response: Response) => response.json())
                 .subscribe(
                 data => {
                     console.log("body",body);
-                    return this.getProducts();
+                    // return this.getProducts();
                 },
                 (err) => console.log(`errror ${err}`)
                 )

@@ -64,7 +64,7 @@ import { showsingleorderComponent } from "./order/showorder.component";
       {path:"products/list" ,component:Product},
       {path:"products/add" ,component:AddProduct},
       {path:"products/edit/:id" ,component:editProduct},
-      {path:"products/edit/updatequantity/:id" ,component:UpdateQuantity},
+      {path:"products/edit/quantity/:id" ,component:UpdateQuantity},
       {path: "orders/list", component:OrderComponent},
       {path:"orders/showorder/:id",component:showsingleorderComponent},
       {path: "login", component: AuthComponent },

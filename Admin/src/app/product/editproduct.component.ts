@@ -59,7 +59,6 @@ URL = 'https://storewebservice.herokuapp.com/';
     {
         console.log("from component");
         console.log(newProduct.name);
-        
          this.productService.updateProduct(newProduct.idproduct,newProduct.name,newProduct.barcode,newProduct.price,newProduct.quantity,this.imageurl,newProduct.description,newProduct.status);
          this.router.navigate(['products/list']); 
     }
