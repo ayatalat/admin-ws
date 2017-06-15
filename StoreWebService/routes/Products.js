@@ -39,7 +39,7 @@ router.get('/:categoryid?/:productid?', function(req, res, next) {
     })
 })
 router.put('/:oldId/:newId', function(req, res, next) {
-    console.log(req.params.oldId);
+    console.log("kfk",req.params.oldId);
     console.log(req.params.newId);
     Product.updateProductByCategoryId(req.params.newId, req.params.oldId, function(err, rows) {
         if (err) {
@@ -63,10 +63,22 @@ router.post('/', function(req, res, next) {
 });
 
 router.put('/:id', function(req, res, next) {
-    console.log(req.params.id);
+    console.log("id",req.params.id);
 
     Product.updateProduct(req.params.id, req.body, function(err, rows) {
-        console.log("from web service", req.body);
+        if (err) {
+            res.json(err);
+        } else {
+            console.log("success");
+            res.json(rows);
+        }
+    });
+});
+
+router.put('/edit/quantity/:id', function(req, res, next) {
+    console.log("req",req.params.id);
+
+    Product.updateProductQuantity(req.params.id, req.body, function(err, rows) {
         if (err) {
             res.json(err);
         } else {

@@ -11,7 +11,7 @@ import { LoginService } from '../services/login.service';
   styleUrls:['../product/editproduct.component.css']
 })
 export class editProduct implements OnInit {
-  URL = 'https://storewebservice.herokuapp.com/';
+URL = 'https://storewebservice.herokuapp.com/';
      productnameEdit = "";
      productBarcode = "";
      productPrice = "";
@@ -59,7 +59,6 @@ export class editProduct implements OnInit {
     {
         console.log("from component");
         console.log(newProduct.name);
-        
          this.productService.updateProduct(newProduct.idproduct,newProduct.name,newProduct.barcode,newProduct.price,newProduct.quantity,this.imageurl,newProduct.description,newProduct.status);
          this.router.navigate(['products/list']); 
     }

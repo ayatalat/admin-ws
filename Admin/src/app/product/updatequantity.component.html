@@ -1,0 +1,23 @@
+<app-Admin></app-Admin>
+
+ <!-- content section -->
+<section id="main-content">
+<section class="wrapper">
+        <div class="row">
+            <table class="table table-bordered">
+                <tr id="main-tr">
+                    <td> name </td>
+                    <td>Quantity </td>
+                    
+                </tr>
+                <tr >
+                    <td><h2 > {{product.name}}</h2></td>
+                    <td><input type="number" name="productquantity" class="form-control" [(ngModel)]="product.quantity" #productquantity="ngModel"/></td>
+                  </tr>
+            </table>
+        </div>
+        <div class="form-group col-md-4 col-md-offset-4">
+            <button type="button" class="btn btn-primary" (click)="updateQuantity(product)">Update Quantity</button>
+        </div>
+    </section>
+</section>
