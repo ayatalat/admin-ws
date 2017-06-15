@@ -1,3 +1,5 @@
+
+
 var express = require('express');
 var router = express.Router();
 var fs = require("fs");
@@ -8,9 +10,12 @@ var DIR = './uploads/';
 
 var upload = multer({ dest: DIR }).single('photo');
 
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Store ' });
+//  res.render('index', { title: 'Store ' });
+  //res.io.emit("socketToMe", "users");
+ res.send('respond with a resource.');
 
 });
 
@@ -39,7 +44,7 @@ router.post('/', function (req, res, next) {
     }
     // No error occured.
     path = req.file.path;
-    // return res.send("Upload Completed for "+path); 
+    // return res.send("Upload Completed for "+path);
     res.json(path);
   });
 })

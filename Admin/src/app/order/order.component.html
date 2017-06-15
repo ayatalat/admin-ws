@@ -10,11 +10,13 @@
         <div class="row">
             <table class="table table-bordered">
                 <tr id="main-tr">
+                    <td>id</td>
                     <td>Date Added</td>
                     <td>Date Delivered</td>
                     <td>Date selected </td>
                 </tr>
-                <tr *ngFor="let order of listOrders()">
+                <tr *ngFor="let order of listOrders();let index = index">
+                     <td id="id">{{index+1}}</td>
                     <td>{{order.ordertime | date:'short'}}</td>
                     <td>{{order.deliverytime | date:'short'}}</td>
                     <td> {{order.selectedtime | date:'short'}} </td>

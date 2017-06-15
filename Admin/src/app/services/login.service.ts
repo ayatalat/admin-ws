@@ -7,49 +7,66 @@ import "rxjs/add/operator/map";
 @Injectable()
 export class LoginService {
 
-    public users: any = [];
-    public adminUser: any;
-    public adminEmail="admin@gmail.com";
+  public users: any = [];
+  public adminUser: any;
+  public adminEmail = "admin@gmail.com";
+  //https://storewebservice.herokuapp.com
+  loginUrl = "http://localhost:3000/users";
+  constructor(private http: Http, private router: Router) {
 
-    loginUrl = "https://storewebservice.herokuapp.com/users";
-    constructor(private http: Http, private router: Router) {
+  }
 
-    }
+  // getAdmin() {
 
-    getAdmin() {
+  //     this.http.get(`${this.loginUrl}/${this.adminEmail}`).map((response: Response) => response.json())
+  //         .subscribe(data => {
+  //            this.adminUser= data;
+  //            console.log("adminuser",this.adminUser);
 
-        this.http.get(`${this.loginUrl}/${this.adminEmail}`).map((response: Response) => response.json())
-            .subscribe(data => {
-               this.adminUser= data;
-               console.log("adminuser",this.adminUser);
-            
-             console.log(`the data is ${this.adminUser[0].email}`);
-            },
-            err => console.log(`error happened getting users ${err}`)
-            );
-    };
-    
+  //          console.log(`the data is ${this.adminUser[0].email}`);
+  //         },
+  //         err => console.log(`error happened getting users ${err}`)
+  //         );
+  // };
+
   logout() {
     localStorage.removeItem("user");
     this.router.navigate(['/login']);
   }
- 
-  login(email,password){
-      console.log("email from form ",email);
-      console.log("email from database ",this.adminUser[0].email);
-    if (this.adminUser[0].email == email && this.adminUser[0].password == password){
-      localStorage.setItem("user", this.adminUser);
-     // console.log(localStorage.setItem("user",this.adminUser));
-      this.router.navigate(['/home']);   
-      return true;
-    }
-    return false;
- 
+
+  login(email, password) {
+    //-----------auth from database ------------//
+    console.log(email);
+    console.log(password);
+   return this.http.get(this.loginUrl + "/" + email + "/" + password).map((response: Response) => response.json())
+      // .subscribe(data => {
+      //   if (data) {
+      //     console.log(data);
+      //   } else {
+      //     console.log("error");
+      //   }
+      // },
+      // err => console.log(`error happened getting users ${err}`)
+      // )
+
+    //--------------------------//
+    //   console.log("email from form ",email);
+    //   console.log("email from database ",this.adminUser[0].email);
+
+
+    // if (this.adminUser[0].email == email && this.adminUser[0].password== password){
+    //   localStorage.setItem("user", this.adminUser);
+    //  // console.log(localStorage.setItem("user",this.adminUser));
+    //   this.router.navigate(['/home']);   
+    //   return true;
+    // }
+    // return false;
+
   }
- 
-   checkCredentials(){
-    if (localStorage.getItem("user") === null){
-        this.router.navigate(['/login']);
+
+  checkCredentials() {
+    if (localStorage.getItem("user") === null) {
+      this.router.navigate(['/login']);
     }
-  } 
+  }
 }

@@ -33,8 +33,8 @@ router.get('/:id?', function (req, res, next) {
 });
 
 router.post('/:id?', function (req, res, next) {
-    if (req.params.id) {
 
+    if (req.params.id) {
         Order.addProductToOrder(req.params.id, req.body, function (err, count) {
             if (err) {
                 res.json(err);

@@ -14,5 +14,6 @@ var user={
     getuseremail:function(email,callback){
       return db.query('select * from user where email=?',[email],callback);
     }
+
 }
 module.exports=user;

@@ -10,12 +10,14 @@
         <div class="row">
             <table class="table table-bordered">
                 <tr id="main-tr">
+                     <td> id </td>
                     <td>name</td>
                     <td>descritions</td>
                     <td> image </td>
                     <td>action</td>
                 </tr>
-                <tr *ngFor="let category of ListCategory()">
+                <tr *ngFor="let category of ListCategory();let index = index">
+                     <td id="id">{{index+1}}</td>
                     <td>{{category.name}}</td>
                     <td>{{ category.categorydesc}}</td>
                     <td><img [src]="category.image"  style="width:100px; height:100px;" /></td>

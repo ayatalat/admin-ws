@@ -19,7 +19,7 @@ deleteCategory:function(id,callback){
     return db.query("update category set status=0  where idcategory=?",[id],callback);
 },
 updateCategory:function(id,category,callback){
-    return  db.query("update category set name=?,categorydesc=? where idcategory=?",[category.name,category.categorydesc,id],callback);
+    return  db.query("update category set name=?,categorydesc=? ,image =? where idcategory=?",[category.name,category.categorydesc,category.image,id],callback);
 }
 };
 module.exports=Category;

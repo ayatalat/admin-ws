@@ -4,31 +4,43 @@ import { Router } from "@angular/router";
 import { LoginService } from "../services/login.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
 
 export class AuthComponent {
     public email: string;
     public password: string;
     public errorMessage: string;
+    result: any;
     constructor(private router: Router,
         private login: LoginService) {
-           this.login.getAdmin();
-        console.log(this.login.adminEmail);
-         }
-    
-    adminCheck(){
-        // this.login.login(this.email,this.password);
-        if(!this.login.login(this.email,this.password)){
-           alert("your email or password is invalid");
-        }
+        //this.login.getAdmin();
+        // console.log(this.login.adminEmail);
     }
-         
+
+    adminCheck() {
+        // console.log(this.login.login(this.email,this.password));
+        // this.result=this.login.login(this.email,this.password);
+        // console.log("res",this.result)
+        this.login.login(this.email, this.password).subscribe(data => {
+            if (data) {
+                console.log(data);
+                  localStorage.setItem("user", this.email);
+                  console.log(localStorage.setItem("user",this.email));
+                  this.router.navigate(['/home']);   
+            } else {
+                console.log("error");
+            }
+        },
+            err => console.log(`error happened getting users ${err}`)
+        )
+    }
+
     authenticate(form) {
         if (form.valid) {
-            
+
+        }
     }
-  }
 }

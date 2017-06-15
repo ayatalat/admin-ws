@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors=require('cors');
+//-----------notfications--------------//
+
+//------------------------------//
 var routes = require('./routes/index');
 
 var Categories=require('./routes/Categories');
@@ -15,7 +18,14 @@ var usersaddress=require('./routes/usersaddress');
 var mobiles=require('./routes/Mobiles');
 var orders=require('./routes/orders');
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+app.use(function(req, res, next){
+  res.io = io;
+  next();
+});
 // view engine setup
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 // uncomment after placing your favicon in /public
@@ -77,6 +87,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+module.exports = {app: app, server: server};
 
 
-module.exports = app;
+//module.exports = app;
