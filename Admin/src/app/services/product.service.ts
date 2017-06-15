@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 export class ProductService {
     public products: any = [];
     storeUrl = "https://storewebservice.herokuapp.com/products";
+    // storeUrl = "localhost:3000/Products";
     constructor(private http: Http, private router: Router) {
         console.log('product service constructor');
         this.getProducts();
@@ -16,7 +17,8 @@ export class ProductService {
         return this.http.get(this.storeUrl).map((response: Response) => response.json())
             .subscribe(data => {
                 this.products = data
-                // console.log(this.products);
+                console.log("dad",data);
+                console.log("pro",this.products);
             },
             err => console.log(`error happened getting products ${err}`)
             );
@@ -93,4 +95,23 @@ export class ProductService {
             console.log("error");
     };
 
+    updateQuantity( id, productQuantityUpdate: any) {
+        console.log("in service");
+        console.log(productQuantityUpdate)
+        if (productQuantityUpdate != "") {
+            let body = {
+                "quantity": productQuantityUpdate
+            }
+            this.http.put(this.storeUrl + "/" + id, body).map((response: Response) => response.json())
+                .subscribe(
+                data => {
+                    console.log("body",body);
+                
+               return this.getProducts();
+            },
+                (err) => console.log(`errror ${err}`)
+                )
+        } else
+            console.log("error");
+    };
 }

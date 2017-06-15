@@ -49,8 +49,14 @@
                     <td><input type="text" name="productbarcode" class="form-control" [(ngModel)]="product.barcode" #productbarcode="ngModel"/></td>
                     <td><input type="text" name="productprice" class="form-control" [(ngModel)]="product.price" #productprice="ngModel"/></td>
                     <td><input type="text" name="productquantity" class="form-control" [(ngModel)]="product.quantity" #productquantity="ngModel"/></td>
-                    <td><input type="text" name ="productimage" class="form-control"  [(ngModel)]="product.image" #productimage="ngModel"/></td>
-                    <td><textarea name="productdescription" class="form-control" id="exampleTextarea" rows="4" cols="30" [(ngModel)]="product.description" #productdescripation="ngModel"></textarea></td>
+                    <!--<td><input type="text" name ="productimage" class="form-control"  [(ngModel)]="product.image" #productimage="ngModel"/></td>-->
+                    <td><img [src]="product.image" style="width:100px; height:100px;" />
+                    <div >
+                      <input id="photo" type="file" />
+                      <button type="button" class="btn btn-success btn-s" (click)="upload()">upload image</button>
+                  </div>
+                    </td>
+                  <td><textarea name="productdescription" class="form-control" id="exampleTextarea" rows="4" cols="30" [(ngModel)]="product.description" #productdescripation="ngModel"></textarea></td>
                 </tr>
             </table>
         </div>

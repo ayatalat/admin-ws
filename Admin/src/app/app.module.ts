@@ -17,6 +17,7 @@ import { deleteComponent } from "./subcategory/delete.component";
 import { Product } from './product/product.component';
 import { AddProduct } from './product/addproduct.component';
 import { editProduct } from './product/editproduct.component';
+
 import { OrderComponent } from "./order/order.component";
 import { OrderService } from "./services/order.service";
 import { AdminComponent } from "./admin Component/admin.component";
@@ -40,6 +41,7 @@ import { showsingleorderComponent } from "./order/showorder.component";
     Product,
     AddProduct,
     editProduct,
+
     AuthComponent,
     listsubcategory,
     AddsubCatagory,
@@ -47,7 +49,7 @@ import { showsingleorderComponent } from "./order/showorder.component";
     UserComponent,
     showsingleorderComponent,
     AdminComponent,
-        FileSelectDirective
+    FileSelectDirective
 
   ],
   imports: [
@@ -62,6 +64,7 @@ import { showsingleorderComponent } from "./order/showorder.component";
       {path:"products/list" ,component:Product},
       {path:"products/add" ,component:AddProduct},
       {path:"products/edit/:id" ,component:editProduct},
+      // {path:"products/updatequantity/:id/:id" ,component:UpdateQuantity},
       {path: "orders/list", component:OrderComponent},
       {path:"orders/showorder/:id",component:showsingleorderComponent},
       {path: "login", component: AuthComponent },
