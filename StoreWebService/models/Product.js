@@ -9,13 +9,20 @@ return db.query("Select * from product where status = 1",callback);
 getProductById:function(id,callback){
     return db.query("select * from product where idproduct=?",[id],callback);
 },
+getProductByBarcode:function(barcode,callback){
+    return db.query("select * from product where barcode=?",[barcode],callback);
+},
 addProduct:function(product,callback){
    console.log("inside service");
     return db.query("Insert into product (name, barcode, price, quantity, description, image, idcategory) values(?,?,?,?,?,?,?)",[product.name, product.barcode, product.price, product.quantity, product.description, product.image, product.idcategory],callback);
 },
 updateProduct:function(id,product,callback){
-  //  console.log("query");
+   console.log("query");
     return db.query("update product set name=?, barcode=?, price=?, quantity=?, description=?, image=? where idproduct=?",[product.name, product.barcode, product.price, product.quantity, product.description, product.image, id],callback);
+},
+updateProductQuantity:function(id,product,callback){
+   console.log("query");
+    return db.query("update product set quantity=? where idproduct=?",[ product.quantity, id],callback);
 },
 removeProduct:function(id,callback){
     return  db.query("update product set status=0 where idproduct=?",[id],callback);

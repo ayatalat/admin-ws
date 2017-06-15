@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 export class ProductService {
     public products: any = [];
     storeUrl = "https://storewebservice.herokuapp.com/products";
-    // storeUrl = "localhost:3000/Products";
+    //storeUrl = "localhost:3000/Products";
     constructor(private http: Http, private router: Router) {
         console.log('product service constructor');
         this.getProducts();
@@ -95,20 +95,19 @@ export class ProductService {
             console.log("error");
     };
 
-    updateQuantity( id, productQuantityUpdate: any) {
+    updateProductQuantity( id, productQuantityUpdate: any) {
         console.log("in service");
         console.log(productQuantityUpdate)
         if (productQuantityUpdate != "") {
             let body = {
                 "quantity": productQuantityUpdate
             }
-            this.http.put(this.storeUrl + "/" + id, body).map((response: Response) => response.json())
+            this.http.put(this.storeUrl + "edit" + "/" + "quantity" + "/" + id, body).map((response: Response) => response.json())
                 .subscribe(
                 data => {
                     console.log("body",body);
-                
-               return this.getProducts();
-            },
+                    return this.getProducts();
+                },
                 (err) => console.log(`errror ${err}`)
                 )
         } else

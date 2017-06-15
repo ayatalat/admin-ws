@@ -11,7 +11,7 @@ import { LoginService } from '../services/login.service';
   styleUrls:['../product/editproduct.component.css']
 })
 export class editProduct implements OnInit {
-  URL = 'https://storewebservice.herokuapp.com/';
+URL = 'https://storewebservice.herokuapp.com/';
      productnameEdit = "";
      productBarcode = "";
      productPrice = "";
