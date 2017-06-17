@@ -10,7 +10,7 @@ removeMobile:function(id,callback){
 },
  addMobile:function(iduser,Mobile, callback){
         console.log(iduser);
-        return db.query("insert into mobile (mobile, status, iduser) values(?,?,?)",[Mobile.mobile,Mobile.status,iduser],callback);
+        return db.query("insert into mobile (mobile,iduser) values(?,?,?)",[Mobile.mobile,iduser],callback);
     }
 };
  module.exports=Mobile;
