@@ -11,7 +11,7 @@ export class LoginService {
   public adminUser: any;
   public adminEmail = "admin@gmail.com";
   //https://storewebservice.herokuapp.com
-  loginUrl = "http://localhost:3000/users";
+  loginUrl = "http://localhost:3000/users/";
   constructor(private http: Http, private router: Router) {
 
   }
@@ -38,16 +38,8 @@ export class LoginService {
     //-----------auth from database ------------//
     console.log(email);
     console.log(password);
-   return this.http.get(this.loginUrl + "/" + email + "/" + password).map((response: Response) => response.json())
-      // .subscribe(data => {
-      //   if (data) {
-      //     console.log(data);
-      //   } else {
-      //     console.log("error");
-      //   }
-      // },
-      // err => console.log(`error happened getting users ${err}`)
-      // )
+   return this.http.get(this.loginUrl +"admin"+"/" + email + "/" + password).map((response: Response) => response.json())
+ 
 
     //--------------------------//
     //   console.log("email from form ",email);

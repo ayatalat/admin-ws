@@ -24,6 +24,11 @@ updateProductQuantity:function(id,product,callback){
    console.log("query");
     return db.query("update product set quantity=? where idproduct=?",[ product.quantity, id],callback);
 },
+decreaseProductQuantity:function(product,callback){
+   console.log("query");
+    return db.query("update product set quantity = quantity-? where idproduct = ?",[ product.quantity, product.idproduct],callback);
+}
+,
 removeProduct:function(id,callback){
     return  db.query("update product set status=0 where idproduct=?",[id],callback);
 },

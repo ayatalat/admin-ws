@@ -13,9 +13,9 @@ var upload = multer({ dest: DIR }).single('photo');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-//  res.render('index', { title: 'Store ' });
+ res.render('index', { title: 'Store ' });
   //res.io.emit("socketToMe", "users");
- res.send('respond with a resource.');
+ //res.send('respond with a resource.');
 
 });
 

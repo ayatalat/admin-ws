@@ -7,6 +7,10 @@ return db.query("Select * from mobile where status = 1 and iduser=?",[id],callba
 },
 removeMobile:function(id,callback){
     return  db.query("update mobile set status=0 where iduser=?",[id],callback);
-}
+},
+ addMobile:function(iduser,Mobile, callback){
+        console.log(iduser);
+        return db.query("insert into mobile (mobile, status, iduser) values(?,?,?)",[Mobile.mobile,Mobile.status,iduser],callback);
+    }
 };
  module.exports=Mobile;

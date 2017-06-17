@@ -16,14 +16,10 @@ export class AuthComponent {
     result: any;
     constructor(private router: Router,
         private login: LoginService) {
-        //this.login.getAdmin();
-        // console.log(this.login.adminEmail);
+        
     }
 
     adminCheck() {
-        // console.log(this.login.login(this.email,this.password));
-        // this.result=this.login.login(this.email,this.password);
-        // console.log("res",this.result)
         this.login.login(this.email, this.password).subscribe(data => {
             if (data) {
                 console.log(data);
