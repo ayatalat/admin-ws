@@ -10,8 +10,8 @@ export class LoginService {
   public users: any = [];
   public adminUser: any;
   public adminEmail = "admin@gmail.com";
-  //https://storewebservice.herokuapp.com
-  loginUrl = "http://localhost:3000/users/";
+
+  loginUrl = "https://storewebservice.herokuapp.com/users/";
   constructor(private http: Http, private router: Router) {
 
   }
