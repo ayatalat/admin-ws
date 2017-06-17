@@ -76,13 +76,13 @@ router.post('/', function (req, res, next) {
     req.body.password = bcrypt.hashSync(req.body.password, saltRounds);
 
     console.log("password", req.body.password);
-    user.addNewUser(req.body, function (err, count) {
+    user.addNewUser(req.body, function (err, rows) {
         if (err) {
             console.log(err);
             res.json(err);
         }
         else {
-            res.json(req.body);
+            res.json(rows.insertId);
         }
     });
 });
