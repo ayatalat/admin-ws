@@ -23,8 +23,8 @@ router.get('/:email', function (req, res, next) {
         if (err) {
             res.json(err);
         } else {
-            rows = JSON.stringify(rows);
-            console.log(rows);
+            // rows = JSON.stringify(rows);
+            // console.log(rows);
             res.json(rows);
         }
     })
