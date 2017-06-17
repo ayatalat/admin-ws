@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Product = require('../models/Product');
+var db=require('../dbconnection'); //reference of dbconnection.js
 
 router.get('/:id?', function(req, res, next) {
 
@@ -74,29 +75,20 @@ router.put('/:id', function(req, res, next) {
         }
     });
 });
+
 router.put('/', function(req, res, next) {
-
     console.log("before loop",req.body);
-
-   // for (var i=0; i<req.body.length; i++) {
-        console.log("after loop",req.body[i]);
-        
-        Product.decreaseProductQuantity(req.body[i], function(err, rows) {
-            if (err) {
-                console.log("error");
-                 res.json(err);
-            } 
-            else {
-                console.log("success");
-                 res.json(rows);
-            
-            }
-        });
-
-//    }
-});
-
-
+    // flag = true;
+            for (var i=0; i<req.body.length; i++) {
+            console.log("after loop",req.body[i]);
+             Product.decreaseProductQuantity(req.body[i]); 
+     }//end loop
+        if (flag == true)
+        {
+            console.log("success");
+        }
+         res.json({"success":flag});
+}); //end rout
 
 router.put('/edit/quantity/:id', function(req, res, next) {
     console.log("req",req.params.id);
