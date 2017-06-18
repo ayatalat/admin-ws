@@ -15,9 +15,9 @@
                     <td>action</td>
                 </tr>
                 <tr *ngFor="let user of getusers()">
-                    <td>{{user.name}}</td>
-                    <td>{{ user.email}}</td>
-                    <td>
+                    <td *ngIf="user.status !=-1">{{user.name}}</td>
+                    <td  *ngIf="user.status !=-1">{{ user.email}}</td>
+                    <td  *ngIf="user.status !=-1">
                         <a [routerLink]="['/orders/showorder',user.iduser]" class="btn btn-primary">show orders</a>
                     </td>
                 </tr>
