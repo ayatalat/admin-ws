@@ -54,9 +54,7 @@
         padding: 0 10px;
         text-align: left;
     }
-    #sidebar > ul > li > a i{
-        /*display: none !important;*/
-    }
+  
 
     #sidebar ul > li > a .arrow, #sidebar > ul > li > a .arrow.open {
         margin-right: 10px;
@@ -74,9 +72,7 @@
     #sidebar > ul > li > ul.sub > li > a {
         background: transparent !important ;
     }
-    #sidebar > ul > li > ul.sub > li > a:hover {
-        
-    }
+ 
 
 
     /* sidebar */

@@ -57,6 +57,6 @@ export class AddCatagory {
                 }
         console.log(this.newCategory);
         this.catservice.addCatagory(this.newCategory);
-        this.router.navigate(['/catagory/list']);
+        this.router.navigate(['/catagory/list'])
     }
 }

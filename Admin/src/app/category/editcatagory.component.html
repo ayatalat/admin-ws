@@ -1,8 +1,43 @@
 <app-Admin></app-Admin>
-<!-- end header -->
 
-<!-- content section -->
-<section id="Category" style="margin:100px;">
+ <!-- content section -->
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <table class="table table-bordered">
+                <tr id="main-tr">
+                    
+                    <td>name</td>
+                    <td>descritions</td>
+                    <td> image </td>
+                   
+                </tr>
+                <tr >
+                   
+                    <td ><input type="text" name="catname" class="form-control"  [(ngModel)]="category.name" #catname="ngModel" /></td>
+                    <td><input type="text" name="descr" class="form-control" [(ngModel)]="category.categorydesc" #desc="ngModel"/></td>
+                    <td>
+                        <img [src]="category.image" style="width:100px; height:100px;" />
+                        <div >
+                            <input id="photo" type="file" />
+                            <button type="button" class="btn btn-success btn-s" (click)="upload()">upload image</button>
+                        </div>
+                    </td>
+                   
+                </tr>
+            </table>
+        </div>
+        <div class="form-group col-md-4 col-md-offset-4">
+            <button type="submit" class="btn btn-primary" (click)="EditCatagory(catname.value,desc.value)">Edit</button>
+        </div>
+    </section>
+</section>
+
+
+
+
+
+<!--<section id="Category" style="margin:100px;">
     <div id="CatContent-head">
   <h3 class="h3"> Edit category </h3>
     <div class="row" style="margin-top:30px;">
@@ -34,4 +69,4 @@
         </div>
     </div>
     </div>
-</section>
+</section>-->

@@ -52,13 +52,17 @@ export class AddProduct {
     
   }
   addProduct() {
-    if (this.productName != "") {
+    if (this.productName != "" && this.productPrice !="" && this.productQuantity !="" && this.productImage !="" && this.productDescription !="") {
       console.log("in component");
       console.log(this.productName);
       this.subCategory = this.subcatservice.subCategories.filter((subcatagory: any) => subcatagory.name == this.selectedoption);
       console.log("with",this.subCategory[0].idcategory);
       this.productService.addProduct(this.productName, this.productBarcode, this.productPrice, this.productQuantity,this.imageurl, this.productDescription,this.subCategory[0].idcategory);
       this.router.navigate(['products/list']);
+    }
+    else
+    {
+      alert ("please enter valied data")
     }
   }
   ListsubCategory() {

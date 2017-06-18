@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Http, Response, Request } from '@angular/http';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
@@ -12,15 +12,33 @@ import { CatService } from '../services/catagory.service';
     templateUrl: './add.componet.html'
 })
 export class AddsubCatagory {
+    URL = 'https://storewebservice.herokuapp.com/';
     selectedoption: string;
     newcategory: any;
     newsubcategory: any;
     name: string = '';
     description: any = '';
-    constructor(private subcatservice: SubcategoryService, private catservice: CatService, private loginService: LoginService, private http: Http, private router: Router) {
+    imageurl='';
+    constructor(private el: ElementRef,private subcatservice: SubcategoryService, private catservice: CatService, private loginService: LoginService, private http: Http, private router: Router) {
     }
     ngOnInit() {
         this.loginService.checkCredentials();
+    }
+     upload() {
+        let inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#photo');
+        let fileCount: number = inputEl.files.length;
+        let formData = new FormData();
+        if (fileCount > 0) { 
+            formData.append('photo', inputEl.files.item(0));
+
+            this.http.post(this.URL, formData).map((res: Response) => res.json()).subscribe(    
+                (data) => {
+                    console.log(data)
+                    this.imageurl=this.URL+data
+                    console.log("image url ",this.imageurl);
+                },
+                (error) => alert(error))
+        }
     }
     onChange(newValue) {
         console.log(newValue);

@@ -24,10 +24,14 @@ export class EditCatagory {
         this.sub = this.router.params.subscribe(params => {
             this.id = +params['id'];
             console.log(this.id);
-
+            this.category = this.getCategoryById();
 
         });
     }
+    getCategoryById()
+  {
+      return this.catservice.categories.filter((category:any)=>category.idcategory===this.id)[0];
+  }
     upload() {
         let inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#photo');
         let fileCount: number = inputEl.files.length;

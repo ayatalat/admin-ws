@@ -27,7 +27,8 @@ export class AuthComponent {
                   console.log(localStorage.setItem("user",this.email));
                   this.router.navigate(['/home']);   
             } else {
-                console.log("error");
+                
+                alert("please enter valied data");
             }
         },
             err => console.log(`error happened getting users ${err}`)

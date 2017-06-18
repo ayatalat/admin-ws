@@ -1,8 +1,13 @@
 <app-Admin></app-Admin>
 
 <div class="row" style="margin-top:60px;">
-    <div class="form-group col-md-5 col-md-offset-4">
-        <label for="exampleInputEmail1"> choose sub Categories</label>
+    <div id="CatContent-head" style="margin-top:30px;">
+        <div id="content-head"> 
+         <h2> Add Products </h2>
+        </div>
+    </div>
+    <div class="form-group col-md-5 col-md-offset-4"  style="margin-top:30px;">
+        <label for="exampleInputEmail1" class="addCatLabel"> choose sub Categories</label>
         <select class="form-control" id="sel1" [ngModel]="selectedoption" (ngModelChange)="onChange($event)">
             <option *ngFor="let subcatagory of ListsubCategory()">
                     {{subcatagory.name}}
@@ -10,33 +15,33 @@
         </select>
     </div>
     <div class="form-group col-md-5 col-md-offset-4">
-        <label for="exampleInputEmail1">product Name</label>
+        <label for="exampleInputEmail1" class="addCatLabel">product Name</label>
         <input type="text" name="productname" class="form-control" placeholder=" enter product name" [(ngModel)]="productName" #productname="ngModel"
         />
     </div>
 
     <div class="form-group col-md-5 col-md-offset-4">
-        <label for="exampleInputEmail1">barcode</label>
+        <label for="exampleInputEmail1" class="addCatLabel">barcode</label>
         <input type="text" name="productbarcode" class="form-control" placeholder="Enter product barcode" [(ngModel)]="productBarcode"
             #productbarcode="ngModel" />
     </div>
     <div class="form-group col-md-5 col-md-offset-4">
-        <label for="exampleInputEmail1">price</label>
+        <label for="exampleInputEmail1" class="addCatLabel">price</label>
         <input type="number" name="productprice" class="form-control" placeholder="Enter product price" [(ngModel)]="productPrice"
             #productprice="ngModel" />
     </div>
     <div class="form-group col-md-5 col-md-offset-4">
-        <label for="exampleInputEmail1">Quantity</label>
+        <label for="exampleInputEmail1" class="addCatLabel">Quantity</label>
         <input type="number" name="productquantity" class="form-control" placeholder="Enter product quantity" [(ngModel)]="productQuantity"
             #productquantity="ngModel" />
     </div>
     <div class="form-group col-md-5 col-md-offset-4">
-        <label for="exampleInputFile">Image</label>
+        <label for="exampleInputFile" class="addCatLabel">Image</label>
         <input id="photo" type="file" />
         <button type="button" class="btn btn-success btn-s" (click)="upload()">upload image</button>
     </div>
     <div class="form-group col-md-5 col-md-offset-4" >
-        <label for="exampleTextarea">Description</label>
+        <label for="exampleTextarea" class="addCatLabel">Description</label>
         <textarea name="productdescription" class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="productDescription" #productdescription="ngModel"></textarea>
     </div>
     <div class="form-group col-md-5 col-md-offset-4" >

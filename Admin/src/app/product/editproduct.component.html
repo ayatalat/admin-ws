@@ -2,36 +2,6 @@
 
  <!-- content section -->
 <section id="main-content">
-<!--<div class="row" *ngFor="let product of getProductById()" >
-  <div class="form-group col-md-5 col-md-offset-4" >
-    <label for="exampleInputEmail1">product name</label>
-    <input type="text" name="productnameEdit" class="form-control" [(ngModel)]="product.name" #productnameEdit="ngModel"/>
-  </div>
-  <div class="form-group col-md-5 col-md-offset-4" >
-    <label for="exampleInputEmail1">product barcode</label>
-    <input type="text" name="productbarcode" class="form-control" [(ngModel)]="product.barcode" #productbarcode="ngModel"/>
-  </div>
-  <div class="form-group col-md-5 col-md-offset-4" >
-    <label for="exampleInputEmail1">product price</label>
-    <input type="text" name="productprice" class="form-control" [(ngModel)]="product.price" #productprice="ngModel"/>
-  </div>
-    <div class="form-group col-md-5 col-md-offset-4" >
-    <label for="exampleInputEmail1">product Quantity</label>
-    <input type="text" name="productquantity" class="form-control" [(ngModel)]="product.quantity" #productquantity="ngModel"/>
-  </div>
-  <div class="form-group col-md-5 col-md-offset-4" >
-    <label for="exampleInputFile"> product Image</label>
-    <input type="file" name ="productimage" class="form-control-file" id="exampleInputFile"  [(ngModel)]="product.image" #productimage="ngModel">
-  </div>
-  <div class="form-group col-md-5 col-md-offset-4" >
-    <label for="exampleTextarea">product Description</label>
-    <textarea name="productdescription" class="form-control" id="exampleTextarea" rows="3" [(ngModel)]="product.description" #productdescription="ngModel"></textarea>
-  </div>
-<div class="form-group col-md-5 col-md-offset-4">
-    <button type="button" class="btn btn-primary" (click)="editProduct(product.id,product.status)">edit product</button>
-</div>
-</div>-->
-
 
 <section class="wrapper">
         <div class="row">
@@ -44,11 +14,11 @@
                     <td> image </td>
                     <td> description </td>
                 </tr>
-                <tr >
+                <tr id="child-tr">
                     <td><input type="text" name="productnameEdit" class="form-control" [(ngModel)]="product.name" #productnameEdit="ngModel"/></td>
                     <td><input type="text" name="productbarcode" class="form-control" [(ngModel)]="product.barcode" #productbarcode="ngModel"/></td>
-                    <td><input type="text" name="productprice" class="form-control" [(ngModel)]="product.price" #productprice="ngModel"/></td>
-                    <td><input type="text" name="productquantity" class="form-control" [(ngModel)]="product.quantity" #productquantity="ngModel"/></td>
+                    <td><input type="number" name="productprice" class="form-control" [(ngModel)]="product.price" #productprice="ngModel"/></td>
+                    <td><input type="number" name="productquantity" class="form-control" [(ngModel)]="product.quantity" #productquantity="ngModel"/></td>
                     <!--<td><input type="text" name ="productimage" class="form-control"  [(ngModel)]="product.image" #productimage="ngModel"/></td>-->
                     <td><img [src]="product.image" style="width:100px; height:100px;" />
                     <div >
@@ -56,7 +26,7 @@
                       <button type="button" class="btn btn-success btn-s" (click)="upload()">upload image</button>
                   </div>
                     </td>
-                  <td><textarea name="productdescription" class="form-control" id="exampleTextarea" rows="4" cols="30" [(ngModel)]="product.description" #productdescripation="ngModel"></textarea></td>
+                  <td id="text"><textarea name="productdescription" class="form-control" id="exampleTextarea" rows="5" cols="35" [(ngModel)]="product.description" #productdescripation="ngModel"></textarea></td>
                 </tr>
             </table>
         </div>

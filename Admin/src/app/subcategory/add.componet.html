@@ -3,12 +3,14 @@
 <!-- end header -->
 <!-- content section -->
 <section id="Category">
-    <div id="CatContent-head">
-        <h2>Add New sub Category</h2>
+    <div id="CatContent-head" style="margin-bottom:5px;">
+        <div id="content-head"> 
+         <h2> Add Subcategory </h2>
+        </div>
     </div>
     <form method="post"  enctype="multipart/form-data">
-    <div class="col-md-5 col-md-offset-4" style="margin-top:30px;">
-            <label for="sel1" class="addCatLabel">Select list:</label>
+    <div class="col-md-5 col-md-offset-4" style="margin-top:20px;">
+            <label for="sel1" class="addCatLabel" style="margin-bottom:5px;">Select list:</label>
             <select class="form-control" id="sel1"  name="selectcategory" [ngModel]="selectedoption" (ngModelChange)="onChange($event)">
         <option *ngFor="let catagory of ListCategory()">
                 {{catagory.name}}
@@ -16,26 +18,26 @@
     </select>
     </div>
     <div class="row" style="margin-top:30px;">
-        <div class="form-group col-md-5 col-md-offset-4">
-            <label for="newCatagory" class="addCatLabel">Name</label>
+        <div class="form-group col-md-5 col-md-offset-4" style="margin-top:20px;">
+            <label for="newCatagory" class="addCatLabel" style="margin-bottom:5px;">Name</label>
             <input type="text" class="form-control" [(ngModel)]="name"  name="categoryName"  placeholder="enter category name...">
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-md-5 col-md-offset-4">
-            <label for="descCatagory" class="addCatLabel">Descriptation</label>
+        <div class="form-group col-md-5 col-md-offset-4" style="margin-top:9px;">
+            <label for="descCatagory" class="addCatLabel" style="margin-bottom:5px;">Descriptation</label>
             <input type="text" class="form-control" [(ngModel)]="description" name="categorydesc"   placeholder="enter category descripation..">
         </div>
     </div>
-    <!--<div class="row">
-        <div class="form-group col-md-5 col-md-offset-4">
-            <label for="categoryimage">Add image</label>
-            <input type="file" class="form-control-file"   name="categortyimage" (change)="filechange(input)" #input>
-        </div>
-    </div>-->
+ 
+    <div class="form-group col-md-5 col-md-offset-4">
+        <label for="exampleInputFile" class="addCatLabel" style="margin-bottom:5px;">Image</label>
+        <input id="photo" type="file" />
+        <button type="button" class="btn btn-success btn-s" (click)="upload()">upload image</button>
+    </div>
     <div class="row">
-        <div class="col-md-5 col-md-offset-6">
-            <button type="submit" class="btn btn-success" (click)="Addsubcatagory()">Add</button>
+        <div class="col-md-5 col-md-offset-4">
+            <button type="submit" class="btn btn-primary"  style="margin-top:9px;" (click)="Addsubcatagory()">Add super category</button>
         </div>
     </div>
     </form>

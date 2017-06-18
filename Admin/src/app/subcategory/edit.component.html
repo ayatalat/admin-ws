@@ -1,8 +1,55 @@
 <app-Admin></app-Admin>
-<!-- end header -->
 
-<!-- content section -->
-<section id="addCategory" style="margin:100px;">
+ <!-- content section -->
+<section id="main-content">
+
+<section class="wrapper">
+        <div class="row">
+            <table class="table table-bordered">
+                <tr id="main-tr">
+                    <td>name</td>
+                    <td>Descriptation</td>
+                    
+                    <td> change super category </td>
+                    <td> image </td>
+                </tr>
+                <tr id="child-tr">
+                    <td><input type="text" name="catname" class="form-control" placeholder="name" [(ngModel)]="subcategory.name" #catname="ngModel" /></td>
+                    <td><input type="text" name="descr" class="form-control" placeholder="descripation" [(ngModel)]="subcategory.descripation" #desc="ngModel"/></td>
+                    <td>
+                        <div class="col-md-8 col-md-offset-2" style="margin-top:30px;">
+                            <select class="form-control" id="sel1" [ngModel]="selectedoption" (ngModelChange)="onChange($event)">
+                                <option *ngFor="let catagory of ListCategory()">
+                                {{catagory.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </td>
+                    <td><img [src]="subcategory.image" style="width:100px; height:100px;" />
+                        <div>
+                            <input id="photo" type="file" />
+                            <button type="button" class="btn btn-success btn-s" (click)="upload()">upload image</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-group col-md-4 col-md-offset-4">
+            <button type="button" class="btn btn-primary" (click)="EditsubCatagory(catname.value,desc.value)">edit subcategory</button>
+        </div>
+    </section>
+</section>
+
+
+
+
+
+
+
+
+<!--<app-Admin></app-Admin>-->
+
+<!--<section id="addCategory" style="margin:100px;">
   
     <div class="row" style="margin-top:30px;">
     <div class="form-group col-md-5 col-md-offset-4">
@@ -32,4 +79,4 @@
         </div>
     </div>
 
-</section>
+</section>-->

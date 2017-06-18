@@ -3,8 +3,8 @@
 <!-- end header -->
 <!-- content section -->
 <section id="Category">
-    <div id="CatContent-head">
-        <h2>Add New Category</h2>
+    <div id="content-head"> 
+         <h2> Add Category </h2>
     </div>
     <form method="post" enctype="multipart/form-data">
         <div class="row" style="margin-top:30px;">
@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="form-group col-md-5 col-md-offset-4">
-                <label for="categoryimage">Add image</label>
+                <label for="categoryimage" class="addCatLabel">image</label>
                 <input id="photo" type="file" />
                 <button type="button" class="btn btn-success btn-s" (click)="upload()">upload image
             </button>
@@ -29,8 +29,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-5 col-md-offset-6">
-                <button type="submit" class="btn btn-success" (click)="Addcatagory()">Add</button>
+            <div class="col-md-5 col-md-offset-6" style="margin-top:20px;">
+                <button type="submit" class="btn btn-primary" (click)="Addcatagory()">Add Category</button>
             </div>
         </div>
     </form>

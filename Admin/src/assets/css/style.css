@@ -13,7 +13,18 @@ Premium: http://www.gridgum.com
 body{
     background: white;
 }
-
+body::-webkit-scrollbar {
+    width: 0.5em;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #084fa3;
+  outline: 1px solid slategrey;
+}
 .navbar, .dropdown-menu{
 background:rgba(255,255,255,0.25);
 border: none;
@@ -103,7 +114,8 @@ border: none;
     vertical-align: middle;
 }
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
-    vertical-align:inherit
+    vertical-align:inherit;
+		padding: 3px;
 }
 .actionBtn
 {
@@ -119,7 +131,12 @@ border: none;
 .addCatLabel{
     -webkit-text-fill-color: #7d9de8;
 }
-
+.form-control{
+	padding: 0px;
+}
+.btn{
+	font-size: 15px;
+}
 
 @font-face {
   font-family: 'Lato';
@@ -127,6 +144,14 @@ border: none;
   font-weight: 400;
   src: local('Lato Regular'), local('Lato-Regular'), url(http://themes.googleusercontent.com/static/fonts/lato/v7/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
 }
+#child-tr{
+	text-align: center;
+}
+
+	/*.form-control
+	{
+	height: 20px;
+}*/
 
 
 .wrap {
