@@ -12,7 +12,7 @@
                 </tr>
                 <tr >
                     <td><h2 > {{product.name}}</h2></td>
-                    <td><input type="number" name="productquantity" class="form-control" [(ngModel)]="product.quantity" #productquantity="ngModel"/></td>
+                    <td><input type="number"  min=0  name="productquantity" class="form-control" [(ngModel)]="product.quantity" #productquantity="ngModel"/></td>
                   </tr>
             </table>
         </div>

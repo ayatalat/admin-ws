@@ -6,7 +6,6 @@ import 'rxjs/add/operator/map';
 export class CatService {
     public catagories: any = [];
     name: string;
-    //https://storewebservice.herokuapp.com/categories
     categoryUrl = "https://storewebservice.herokuapp.com/categories";
     producturl = "https://storewebservice.herokuapp.com/products";
     constructor(private http: Http) {

@@ -8,7 +8,6 @@ import 'rxjs/add/operator/map';
 export class ProductService {
     public products: any = [];
     storeUrl = "https://storewebservice.herokuapp.com/products";
-    //storeUrl = "localhost:3000/Products";
     constructor(private http: Http, private router: Router) {
         console.log('product service constructor');
         this.getProducts();

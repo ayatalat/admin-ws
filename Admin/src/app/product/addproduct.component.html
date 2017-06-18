@@ -27,12 +27,12 @@
     </div>
     <div class="form-group col-md-5 col-md-offset-4">
         <label for="exampleInputEmail1" class="addCatLabel">price</label>
-        <input type="number" name="productprice" class="form-control" placeholder="Enter product price" [(ngModel)]="productPrice"
+        <input type="number" name="productprice" min=0 class="form-control" placeholder="Enter product price" [(ngModel)]="productPrice"
             #productprice="ngModel" />
     </div>
     <div class="form-group col-md-5 col-md-offset-4">
         <label for="exampleInputEmail1" class="addCatLabel">Quantity</label>
-        <input type="number" name="productquantity" class="form-control" placeholder="Enter product quantity" [(ngModel)]="productQuantity"
+        <input type="number" name="productquantity" min=0  class="form-control" placeholder="Enter product quantity" [(ngModel)]="productQuantity"
             #productquantity="ngModel" />
     </div>
     <div class="form-group col-md-5 col-md-offset-4">

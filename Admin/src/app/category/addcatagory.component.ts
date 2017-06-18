@@ -3,7 +3,6 @@ import { CatService } from '../services/catagory.service';
 import { Http, Response, Request } from '@angular/http';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
-import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 
 
@@ -20,7 +19,6 @@ export class AddCatagory {
     newCategory: any = {};
     image: any;
     imageurl='';
-    public uploader: FileUploader = new FileUploader({ url:this.URL, itemAlias: 'photo' });
 
 
     constructor(private el: ElementRef, private catservice: CatService, private loginService: LoginService, private http: Http, private router: Router) {

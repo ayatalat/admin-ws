@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
  import {RouterModule} from '@angular/router';
- import { FileSelectDirective } from 'ng2-file-upload';
 
  	
 import { AppComponent } from "./app.component";  
@@ -48,8 +47,7 @@ import { showsingleorderComponent } from "./order/showorder.component";
     EditsubCatagory,
     UserComponent,
     showsingleorderComponent,
-    AdminComponent,
-    FileSelectDirective
+    AdminComponent
 
   ],
   imports: [

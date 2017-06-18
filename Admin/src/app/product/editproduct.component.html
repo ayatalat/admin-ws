@@ -17,8 +17,8 @@
                 <tr id="child-tr">
                     <td><input type="text" name="productnameEdit" class="form-control" [(ngModel)]="product.name" #productnameEdit="ngModel"/></td>
                     <td><input type="text" name="productbarcode" class="form-control" [(ngModel)]="product.barcode" #productbarcode="ngModel"/></td>
-                    <td><input type="number" name="productprice" class="form-control" [(ngModel)]="product.price" #productprice="ngModel"/></td>
-                    <td><input type="number" name="productquantity" class="form-control" [(ngModel)]="product.quantity" #productquantity="ngModel"/></td>
+                    <td><input type="number" name="productprice" class="form-control"  min=0  [(ngModel)]="product.price" #productprice="ngModel"/></td>
+                    <td><input type="number" name="productquantity" class="form-control"  min=0  [(ngModel)]="product.quantity" #productquantity="ngModel"/></td>
                     <!--<td><input type="text" name ="productimage" class="form-control"  [(ngModel)]="product.image" #productimage="ngModel"/></td>-->
                     <td><img [src]="product.image" style="width:100px; height:100px;" />
                     <div >
