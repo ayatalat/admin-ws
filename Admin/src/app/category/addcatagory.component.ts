@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
     templateUrl: './addcatagory.component.html'
 })
 export class AddCatagory {
-     URL = 'https://storewebservice.herokuapp.com/';
+    URL = 'https://storewebservice.herokuapp.com/';
 
     name: string = '';
     description: any = '';
     categoryImage: string = '';
     newCategory: any = {};
     image: any;
-    imageurl='';
+    imageurl = '';
 
 
     constructor(private el: ElementRef, private catservice: CatService, private loginService: LoginService, private http: Http, private router: Router) {
@@ -31,30 +31,36 @@ export class AddCatagory {
         let inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#photo');
         let fileCount: number = inputEl.files.length;
         let formData = new FormData();
-        if (fileCount > 0) { 
+        if (fileCount > 0) {
             formData.append('photo', inputEl.files.item(0));
 
-            this.http.post(this.URL, formData).map((res: Response) => res.json()).subscribe(    
+            this.http.post(this.URL, formData).map((res: Response) => res.json()).subscribe(
                 (data) => {
                     console.log(data)
-                    this.imageurl=this.URL+data
-                    console.log("image url ",this.imageurl);
+                    this.imageurl = this.URL + data
+                    console.log("image url ", this.imageurl);
                 },
                 (error) => alert(error))
         }
     }
-  
+
     Addcatagory() {
         console.log(this.name);
-        this.newCategory = {
-            "name": this.name,
-            "idsupercategory": null,
-            "status": 1,
-            "categorydesc": this.description,
-            "image": this.imageurl
-                }
-        console.log(this.newCategory);
-        this.catservice.addCatagory(this.newCategory);
-        this.router.navigate(['/catagory/list'])
+        if (this.name != '' && this.description != '' && this.imageurl != '') {
+            this.newCategory = {
+                "name": this.name,
+                "idsupercategory": null,
+                "status": 1,
+                "categorydesc": this.description,
+                "image": this.imageurl
+            }
+            console.log(this.newCategory);
+            this.catservice.addCatagory(this.newCategory);
+            this.router.navigate(['/catagory/list'])
+
+        }else{
+            console.log('empty data');
+        }
+
     }
 }

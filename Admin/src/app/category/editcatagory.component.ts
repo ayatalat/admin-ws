@@ -28,10 +28,9 @@ export class EditCatagory {
 
         });
     }
-    getCategoryById()
-  {
-      return this.catservice.categories.filter((category:any)=>category.idcategory===this.id)[0];
-  }
+    getCategoryById() {
+        return this.catservice.categories.filter((category: any) => category.idcategory === this.id)[0];
+    }
     upload() {
         let inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#photo');
         let fileCount: number = inputEl.files.length;
@@ -52,8 +51,13 @@ export class EditCatagory {
 
 
     EditCatagory(name: string, desc: string) {
-        this.catservice.EditCatagory(this.id, name, desc, this.imageurl);
-        this.route.navigate(['/catagory/list'])
+        if (name != '' && desc != '' && this.imageurl != '') {
+            this.catservice.EditCatagory(this.id, name, desc, this.imageurl);
+            this.route.navigate(['/catagory/list'])
+        }else{
+            console.log('invaild data');
+        }
+
 
     }
 

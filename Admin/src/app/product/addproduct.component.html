@@ -22,7 +22,7 @@
 
     <div class="form-group col-md-5 col-md-offset-4">
         <label for="exampleInputEmail1" class="addCatLabel">barcode</label>
-        <input type="text" name="productbarcode" class="form-control" placeholder="Enter product barcode" [(ngModel)]="productBarcode"
+        <input type="number" min=0 name="productbarcode" class="form-control" placeholder="Enter product barcode" [(ngModel)]="productBarcode"
             #productbarcode="ngModel" />
     </div>
     <div class="form-group col-md-5 col-md-offset-4">
