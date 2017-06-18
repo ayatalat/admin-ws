@@ -1,8 +1,58 @@
 <app-Admin></app-Admin>
 
  <!-- content section -->
-<section id="main-content">
+<section id="main-content" >
+<div id="mainDiv" >
+ <form class="form-horizontal">
+    <div class="form-group">
+        <label for="nameinput" class="col-sm-2 control-label" style="color:#537ad5;">Name</label>
+        <div class="col-sm-10">
+            <input type="text" id="nameinput" name="productnameEdit" class="form-control" [(ngModel)]="product.name" #productnameEdit="ngModel"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="barcodeinput" class="col-sm-2 control-label" style="color:#537ad5;">barcode</label>
+        <div class="col-sm-10">
+            <input type="text" id="barcodeinput" name="productbarcode" class="form-control" [(ngModel)]="product.barcode" #productbarcode="ngModel"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="priceinput" class="col-sm-2 control-label" style="color:#537ad5;">Price</label>
+        <div class="col-sm-10">
+            <input type="number" id="priceinput" name="productprice" class="form-control"  min=0  [(ngModel)]="product.price" #productprice="ngModel"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="quantityinput" class="col-sm-2 control-label" style="color:#537ad5;">Quantity</label>
+        <div class="col-sm-10">
+            <input type="number" id="quantityinput" name="productquantity" class="form-control"  min=0  [(ngModel)]="product.quantity" #productquantity="ngModel"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="imageinput" class="col-sm-2 control-label" style="color:#537ad5;">Image</label>
+        <div class="col-sm-3">
+            <img [src]="product.image" style="width:100px; height:100px;" />
+        </div>
+            <div class="col-sm-3" style="margin-top:30px;">
+                <input id="photo" type="file" />
+                <button type="button" class="btn btn-success btn-s" style="margin-top:10px;" (click)="upload()">upload image</button>
+            </div>
+    </div>
+        <div class="form-group">
+            <label for="quantityinput" class="col-sm-2 control-label" style="color:#537ad5;">Description</label>
+            <div class="col-sm-10">
+                <textarea name="productdescription" class="form-control" id="exampleTextarea" rows="5" cols="35" [(ngModel)]="product.description" #productdescripation="ngModel"></textarea>
+            </div>
+        </div>
 
+        <div class="form-group" style="margin-top:30px;">
+            <button type="button" class="btn btn-primary" (click)="updateProduct(product)">edit product</button>
+        </div>
+ 
+ </form>
+ </div>
+</section>
+<!--
 <section class="wrapper">
         <div class="row">
             <table class="table table-bordered">
@@ -19,7 +69,6 @@
                     <td><input type="text" name="productbarcode" class="form-control" [(ngModel)]="product.barcode" #productbarcode="ngModel"/></td>
                     <td><input type="number" name="productprice" class="form-control"  min=0  [(ngModel)]="product.price" #productprice="ngModel"/></td>
                     <td><input type="number" name="productquantity" class="form-control"  min=0  [(ngModel)]="product.quantity" #productquantity="ngModel"/></td>
-                    <!--<td><input type="text" name ="productimage" class="form-control"  [(ngModel)]="product.image" #productimage="ngModel"/></td>-->
                     <td><img [src]="product.image" style="width:100px; height:100px;" />
                     <div >
                       <input id="photo" type="file" />
@@ -35,3 +84,4 @@
         </div>
     </section>
 </section>
+-->

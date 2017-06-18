@@ -9,7 +9,7 @@
         </div>
     </div>
     <form method="post"  enctype="multipart/form-data">
-    <div class="col-md-5 col-md-offset-4" style="margin-top:20px;">
+    <div class="col-md-5 col-md-offset-4" style="margin-top:15px;">
             <label for="sel1" class="addCatLabel" style="margin-bottom:5px;">Select list:</label>
             <select class="form-control" id="sel1"  name="selectcategory" [ngModel]="selectedoption" (ngModelChange)="onChange($event)">
         <option *ngFor="let catagory of ListCategory()">

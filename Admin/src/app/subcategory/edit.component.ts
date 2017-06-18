@@ -30,16 +30,9 @@ export class EditsubCatagory {
         this.sub = this.router.params.subscribe(params => {
             this.id = +params['id'];
             console.log("id",this.id);
-            // console.log(this.getSupCategoryById());
-            // // this.supCategory = this.getSupCategoryById();
-            // // console.log("name",this.supCategory.name);
+            
         });
     }
-//     getSupCategoryById()
-//   {
-//       return this.catservice.categories.filter((subCategory:any)=>subCategory.idsupercategory==this.id)[0];
-//   }
-
     upload() {
         let inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#photo');
         let fileCount: number = inputEl.files.length;

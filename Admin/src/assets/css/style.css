@@ -25,6 +25,15 @@ body::-webkit-scrollbar-thumb {
   background-color: #084fa3;
   outline: 1px solid slategrey;
 }
+#mainDiv
+{
+	display: inline-block;
+    margin: 0px auto;
+    text-align: center;
+}
+.label{
+	-webkit-text-fill-color: #537ad5;
+}
 .navbar, .dropdown-menu{
 background:rgba(255,255,255,0.25);
 border: none;
