@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var Product = require('../models/Product');
-var db=require('../dbconnection'); //reference of dbconnection.js
 
 router.get('/:id?', function(req, res, next) {
 
@@ -10,6 +9,7 @@ router.get('/:id?', function(req, res, next) {
         Product.getProductById(req.params.id, function(err, rows) {
             // console.log("param",req.params.id);
             if (err) {
+                console.log(err);
                 res.json(err);
             } else {
                 res.json(rows);
@@ -20,6 +20,7 @@ router.get('/:id?', function(req, res, next) {
         Product.getAllProducts(function(err, rows) {
 
             if (err) {
+                console.log(err);
                 res.json(err);
             } else {
                 res.json(rows);
@@ -44,6 +45,7 @@ router.put('/:oldId/:newId', function(req, res, next) {
     console.log(req.params.newId);
     Product.updateProductByCategoryId(req.params.newId, req.params.oldId, function(err, rows) {
         if (err) {
+            console.log(err);
             res.json(err);
         } else {
             res.json(rows);
@@ -68,6 +70,7 @@ router.put('/:id', function(req, res, next) {
 
     Product.updateProduct(req.params.id, req.body, function(err, rows) {
         if (err) {
+            console.log(err);
             res.json(err);
         } else {
             console.log("success");
@@ -75,13 +78,12 @@ router.put('/:id', function(req, res, next) {
         }
     });
 });
-
 router.put('/', function(req, res, next) {
     console.log("before loop",req.body);
     // flag = true;
             for (var i=0; i<req.body.length; i++) {
             console.log("after loop",req.body[i]);
-             Product.decreaseProductQuantity(req.body[i]); 
+             Product.decreaseProductQuantity(req.body[i]);
      }//end loop
         if (flag == true)
         {
@@ -90,11 +92,15 @@ router.put('/', function(req, res, next) {
          res.json({"success":flag});
 }); //end rout
 
+
+
+
 router.put('/edit/quantity/:id', function(req, res, next) {
     console.log("req",req.params.id);
 
     Product.updateProductQuantity(req.params.id, req.body, function(err, rows) {
         if (err) {
+            console.log(err);
             res.json(err);
         } else {
             res.json(rows);
@@ -107,6 +113,7 @@ router.delete('/:id', function(req, res, next) {
     Product.removeProduct(req.params.id, function(err, count) {
 
         if (err) {
+            console.log(err);
             res.json(err);
         } else {
             res.json(count);

@@ -9,7 +9,8 @@ if(req.params.idcategory){
     category.getSubCategoryById(req.params.idcategory,function(err,rows){
 
         if(err)
-        {
+        { 
+            console.log(err);
             res.json(err);
         }
         else{
@@ -23,6 +24,7 @@ else{
 
         if(err)
         {
+            console.log(err);
             res.json(err);
         }
         else
@@ -51,7 +53,7 @@ router.delete('/:id',function(req,res,next){
 
             if(err)
             {
-
+                console.log(err);
                 res.json(err);
             }
             else

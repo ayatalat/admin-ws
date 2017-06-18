@@ -89,4 +89,13 @@ getAllSubcategory() {
             (err) => console.log(`error ${err}`)
             )
     }
+
+    getsubcategorybycategory(categoryid){
+        return this.http.get(this.subcategoryurl+"/"+categoryid).map((response: Response) => response.json())
+            .subscribe(data => {
+                this.subCategories = data
+            },
+            err => console.log(`error happened getting categories ${err}`)
+            );
+    }
 }

@@ -30,6 +30,7 @@ router.delete('/:country/:city/:street',function(req,res,next){
 router.get('/:iduser',function(req,res,next){
     useraddress.listaddress(req.params.iduser,function(err,rows){
         if(err){
+            console.log(err);
             res.json(err);
         }else{
             res.json(rows);

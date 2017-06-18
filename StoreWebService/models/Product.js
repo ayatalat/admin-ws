@@ -24,13 +24,11 @@ updateProductQuantity:function(id,product,callback){
    console.log("query");
     return db.query("update product set quantity=? where idproduct=?",[ product.quantity, id],callback);
 },
-
-//decrease
 decreaseProductQuantity:function(product,callback){
     flag = true;
     console.log("query");
    return db.query("update product set quantity = quantity-? where idproduct = ?",[ product.quantity, product.idproduct], function(err, result) {
-        if (err) { 
+        if (err) {
                     console.log("error");
                     flag = false ;
                      return;
@@ -39,10 +37,10 @@ decreaseProductQuantity:function(product,callback){
                     console.log("success");
                     flag = true;
                     return;
-                }  
+                }
     });
-},
-
+}
+,
 removeProduct:function(id,callback){
     return  db.query("update product set status=0 where idproduct=?",[id],callback);
 },

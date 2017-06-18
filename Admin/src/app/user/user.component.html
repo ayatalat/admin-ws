@@ -10,14 +10,17 @@
         <div class="row">
             <table class="table table-bordered">
                 <tr id="main-tr">
+                    <td id="id"> #</td>
                     <td>name</td>
                     <td>email</td>
                     <td>action</td>
                 </tr>
-                <tr *ngFor="let user of getusers()">
-                    <td *ngIf="user.status !=-1">{{user.name}}</td>
-                    <td  *ngIf="user.status !=-1">{{ user.email}}</td>
-                    <td  *ngIf="user.status !=-1">
+                
+                <tr *ngFor="let user of getusers();let index=index">
+                      <td id="id"><a [routerLink]="['/orders/showorder',user.iduser]">{{index+1}}</a></td>
+                    <td >{{user.name}}</td>
+                    <td >{{ user.email}}</td>
+                    <td >
                         <a [routerLink]="['/orders/showorder',user.iduser]" class="btn btn-primary">show orders</a>
                     </td>
                 </tr>

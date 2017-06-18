@@ -21,10 +21,11 @@ router.get('/', function (req, res, next) {
 router.get('/:email', function (req, res, next) {
     user.getuseremail(req.params.email, function (err, rows) {
         if (err) {
+            console.log(err);
             res.json(err);
         } else {
-            // rows = JSON.stringify(rows);
-            // console.log(rows);
+           // rows = JSON.stringify(rows);
+           // console.log(rows);
             res.json(rows);
         }
     })
@@ -91,6 +92,7 @@ router.put('/:id', function (req, res, next) {
     user.edituser(req.params.id, req.body, function (err, rows) {
 
         if (err) {
+            console.log(err);
             res.json(err);
         }
         else {

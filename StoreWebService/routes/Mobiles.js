@@ -8,6 +8,7 @@ router.get('/:id?',function(req,res,next){
 
         if(err)
         {
+            console.log(err);
             res.json(err);
         }
         else
@@ -23,6 +24,7 @@ router.post('/:iduser', function (req, res, next) {
             console.log(req.body);
             console.log(res);
             if (err) {
+                console.log(err);
                 res.json(err);
             }
             else {
@@ -37,6 +39,7 @@ router.delete('/:id',function(req,res,next){
             
             if(err)
             {
+                console.log(err);
                 res.json(err);
             }
             else

@@ -51,7 +51,7 @@ export class EditCatagory {
 
 
     EditCatagory(name: string, desc: string) {
-        if (name != '' && desc != '' && this.imageurl != '') {
+        if (name != '' && desc != '') {
             this.catservice.EditCatagory(this.id, name, desc, this.imageurl);
             this.route.navigate(['/catagory/list'])
         }else{

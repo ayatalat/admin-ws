@@ -5,9 +5,7 @@ var Category={
 getAllCategories:function(callback){
 
 return db.query("Select * from category where idsupercategory IS NULL AND status !=0",callback);
-}
-
-,
+},
 getCategoryById:function(idcategory,callback){
 
     return db.query("select name  from category where idcategory=? AND status !=0",[idcategory],callback);

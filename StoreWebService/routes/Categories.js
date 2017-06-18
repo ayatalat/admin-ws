@@ -25,6 +25,7 @@ else{
 
         if(err)
         {
+            console.log(err);
             res.json(err);
         }
         else
@@ -35,6 +36,7 @@ else{
     });
 }
 });
+
 
 router.post('/',function(req,res,next){
         console.log(req.body);
@@ -55,7 +57,7 @@ router.delete('/:id',function(req,res,next){
 
             if(err)
             {
-
+                console.log(err);
                 res.json(err);
             }
             else
@@ -71,6 +73,7 @@ router.put('/:id',function(req,res,next){
 
         if(err)
         {
+            console.log(err);
             res.json(err);
         }
         else

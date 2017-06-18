@@ -7,13 +7,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class OrderService {
     public orders: any = [];
-   
+
     orderUrl = "https://storewebservice.herokuapp.com/orders";
     constructor(private http: Http, private activatedRoute: ActivatedRoute) {
-       this.getAllOrders();
+        this.getAllOrders();
 
     }
-  
+
     getAllOrders() {
         this.http.get(this.orderUrl).map((response: Response) => response.json())
             .subscribe(data => {
@@ -26,5 +26,12 @@ export class OrderService {
         return this.orders;
     }
 
-   
+    changestatus(idorder,status) {
+        let updatedorder={
+            "idorder":idorder,
+            "status":status
+        }
+return this.http.put(this.orderUrl+"/"+idorder,updatedorder).map((response: Response) => response.json())
+           
+    }
 }

@@ -21,7 +21,7 @@ deleteSubCategory:function(id,callback){
 },
 updateSubCategory:function(id,subcategory,callback){
 
-    return  db.query("update category set name=?,categorydesc=?,idsupercategory=? where idcategory=?",[subcategory.name,subcategory.categorydesc,subcategory.idsupercategory,id],callback);
+    return  db.query("update category set name=?,categorydesc=?,idsupercategory=? ,image=? where idcategory=?",[subcategory.name,subcategory.categorydesc,subcategory.idsupercategory,subcategory.image,id],callback);
 }
 };
 module.exports=subCategory;

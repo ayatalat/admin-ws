@@ -26,4 +26,23 @@ export class showsingleorderComponent {
     getorderbyuserid() {
         return this.orderservice.orders.filter((order) => order.iduser == this.id)
     }
+
+
+    changestatus(event, idorder, status) {
+        this.orderservice.changestatus(idorder, status).subscribe(data => {
+            if (status == 4) {
+                event.target.setAttribute("class", "btn-warning");
+                event.target.setAttribute("value", "on the way");
+
+            }else{
+                event.target.setAttribute("class", "btn-success");
+            event.target.setAttribute("value", "deliveried");
+
+            }
+
+            console.log("success");
+        },
+            (err) => console.log(`error happened getting todos ${err}`)
+        );
+    }
 }

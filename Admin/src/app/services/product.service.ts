@@ -112,4 +112,15 @@ export class ProductService {
         } else
             console.log("error");
     };
+
+    getproductbycategoryid(categoryid){
+           return this.http.get(this.storeUrl+"/"+categoryid+"/"+categoryid).map((response: Response) => response.json())
+            .subscribe(data => {
+               console.log(data);
+               this.products=data;
+               
+            },
+            err => console.log(`error happened getting products ${err}`)
+            );
+    }
 }

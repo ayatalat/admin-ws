@@ -6,10 +6,10 @@ var user={
     }
     ,
     edituser:function(id,user,callback){
-        return db.query("update user set name=?,email=?,password=? where iduser=?",[user.name,user.email,user.password,id],callback);
+        return db.query("update user set name=?,email=? where iduser=?",[user.name,user.email,id],callback);
     },
     listallusers:function(callback){
-    	console.log(db.query('select * from user where status !=0',callback));
+    	return db.query('select * from user where status !=0 AND status !=-1',callback);
     },
     getuseremail:function(email,callback){
       return db.query('select * from user where email=?',[email],callback);
