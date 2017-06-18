@@ -11,9 +11,9 @@ var Order = {
     getOrderByUserId: function (iduser, callback) {
         return db.query("select * from `order` where iduser=?", [iduser], callback);
     },
-
+// deit queery 
     addOrder: function (Order, callback) {
-        return db.query("Insert into `order` (iduser,status,selectedtime) values(?,?,?)", [Order.iduser, Order.status,Order.selectedtime], callback);
+        return db.query("Insert into `order` (iduser,status,selectedtime,selectedaddress,totalprice) values(?,?,?)", [Order.iduser, Order.status,Order.selectedtime,Order.selectedaddress,Order.totalprice], callback);
     },
 
     updateOrder: function (idorder, Order, callback) {

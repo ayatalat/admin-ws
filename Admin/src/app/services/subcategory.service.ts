@@ -63,6 +63,7 @@ getAllSubcategory() {
                 data => {
                     this.getAllSubcategory();
                     console.log(data);
+
                 },
                 (err) => console.log(`errror ${err}`)
                 )

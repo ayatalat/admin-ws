@@ -11,7 +11,7 @@ import { CatService } from '../services/catagory.service';
 
 
 @Component({
-    selector: 'subcategory',
+    selector: 'edit-subcategory',
     templateUrl: './edit.component.html'
 })
 export class EditsubCatagory {
@@ -23,7 +23,8 @@ export class EditsubCatagory {
     supCategory: any = [];
     imageurl='';
     constructor(private el: ElementRef, private catservice:CatService,private subcatservice:SubcategoryService, private loginService: LoginService, private http: Http, private router: ActivatedRoute,private route:Router) {
-    }
+     console.log("category",this.catservice.categories);
+}
     ngOnInit() {
        this.loginService.checkCredentials();
         this.sub = this.router.params.subscribe(params => {
@@ -56,7 +57,7 @@ export class EditsubCatagory {
         }
     }
     ListCategory() {
-        return this.catservice.categories;
+        return this.catservice.categories
     }
     onChange(newValue) {
         console.log(newValue);
@@ -70,7 +71,8 @@ export class EditsubCatagory {
     }
     EditsubCatagory(name:string,desc:string) {
         this.subcatservice.EditsubCategory(this.id, name,desc,this.newcategory[0].idcategory);
-       this.route.navigate(['/subcategory/list'])
+        this.route.navigate(['/subcategory/list']);
+    
 
     }
    

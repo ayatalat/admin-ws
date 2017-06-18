@@ -70,8 +70,8 @@ import { showsingleorderComponent } from "./order/showorder.component";
       {path: "login", component: AuthComponent },
       {path: '', component: Product },
       {path:'subcategory/list',component:listsubcategory},
-      {path:'subcategory/add',component:AddsubCatagory},
       {path:'subcategory/edit/:id',component:EditsubCatagory},
+      {path:'subcategory/add',component:AddsubCatagory},
       {path:'users',component:UserComponent},
       {path: '**', component: Product }
     ])
