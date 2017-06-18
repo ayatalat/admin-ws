@@ -14,12 +14,16 @@
                     <td>Date Added</td>
                     <td>Date Delivered</td>
                     <td>Date selected </td>
+                    <td> selectedaddress</td>
+                    <td> selected mobile </td>
                 </tr>
                 <tr *ngFor="let order of listOrders();let index = index">
-                     <td id="index">{{index+1}}</td>
+                     <td id="id"><a [routerLink]="['/orders/orderdetails',order.idorder]">{{index+1}}</a></td>
                     <td>{{order.ordertime | date:'short'}}</td>
                     <td>{{order.deliverytime | date:'short'}}</td>
                     <td> {{order.selectedtime | date:'short'}} </td>
+                      <td> {{order.selectedaddress}} </td>
+                    <td> {{order.selectedmobile}} </td>
                 </tr>
             </table>
         </div>

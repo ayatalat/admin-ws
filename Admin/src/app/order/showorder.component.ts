@@ -45,4 +45,8 @@ export class showsingleorderComponent {
             (err) => console.log(`error happened getting todos ${err}`)
         );
     }
+
+    deliveried(event,idorder){
+        
+    }
 }

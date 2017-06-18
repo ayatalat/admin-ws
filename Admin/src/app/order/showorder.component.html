@@ -13,21 +13,25 @@
                 <tr id="main-tr">
                     <td> id </td>
                     <td>Date Added</td>
-                    <td>Date Delivered</td>
                     <td>Date selected </td>
+                    <td> selectedaddress</td>
+                    <td> selected mobile </td>
                     <td> action </td>
+                    <td> show order details </td>
                 </tr>
                 
                 <tr *ngFor="let order of getorderbyuserid()">
                     
                     <td> {{order.idorder}} </td>
                     <td>{{order.ordertime | date:'short'}}</td>
-                    <td>{{order.deliverytime | date:'short'}}</td>
                     <td> {{order.selectedtime | date:'short'}} </td>
+                    <td> {{order.selectedaddress}} </td>
+                    <td> {{order.selectedmobile}} </td>
+                    
                     <td *ngIf="order.status ==3"><input type="button" class="btn btn-danger" (click)="changestatus($event,order.idorder,4)" value="start delivery"></td>
                     <td *ngIf="order.status ==4"> <input type="button" class="btn btn-warning" (click)="changestatus($event,order.idorder,5)" value="on the way"> </td>
-                    <td *ngIf="order.status ==5"><input type="button" class="btn btn-success" value="deliveried"></td>
-                  
+                    <td *ngIf="order.status ==5"><input type="button" class="btn btn-success" (click)="deliveried($event,order.idorder)" value="deliveried"></td>
+                    <td><a  class="btn btn-primary"[routerLink]="['/orders/orderdetails',order.idorder]"> show order details</a> </td>
                    
                     
                 </tr>

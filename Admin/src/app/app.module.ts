@@ -28,6 +28,7 @@ import { EditsubCatagory } from "./subcategory/edit.component";
 import { UserService } from "./services/user.service";
 import { UserComponent } from "./user/user.componet";
 import { showsingleorderComponent } from "./order/showorder.component";
+import { OrderDetails } from "app/order/orderdetails.component";
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { showsingleorderComponent } from "./order/showorder.component";
     EditsubCatagory,
     UserComponent,
     showsingleorderComponent,
+    OrderDetails,
     AdminComponent
 
   ],
@@ -70,6 +72,7 @@ import { showsingleorderComponent } from "./order/showorder.component";
       {path:'subcategory/list',component:listsubcategory},
       {path:'subcategory/edit/:id',component:EditsubCatagory},
       {path:'subcategory/add',component:AddsubCatagory},
+        {path:'orders/orderdetails/:id',component:OrderDetails},
       {path:'users',component:UserComponent},
       {path: '**', component: Product }
     ])

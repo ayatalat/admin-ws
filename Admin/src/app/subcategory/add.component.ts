@@ -60,7 +60,7 @@ export class AddsubCatagory {
             "name":this.name,
             "categorydesc":this.description,
             "idsupercategory":this.newcategory[0].idcategory,
-            "image":"image",
+            "image":this.imageurl,
             "status":1
         }
         console.log(this.newsubcategory);
