@@ -40,9 +40,17 @@ export class OrderService {
         return this.http.get(this.orderUrl + "/" + "details" + "/" + orderid).map((response: Response) => response.json())
     }
 
-
     getproductName(orderid) {
         return this.http.get(this.orderUrl + "/" + "productname" + "/" + orderid).map((response: Response) => response.json())
+
+    }
+
+    updatedeliverytime(idorder){
+        return this.http.put(this.orderUrl,idorder).map((response: Response) => response.json()).subscribe(data => {
+               console.log("success in add time ")
+            },
+            (err) => console.log(`error happened add time ${err}`)
+            );
 
     }
 }

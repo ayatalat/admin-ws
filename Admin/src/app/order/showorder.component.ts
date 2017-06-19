@@ -34,19 +34,27 @@ export class showsingleorderComponent {
                 event.target.setAttribute("class", "btn-warning");
                 event.target.setAttribute("value", "on the way");
 
-            }else{
+            } else {
                 event.target.setAttribute("class", "btn-success");
-            event.target.setAttribute("value", "deliveried");
+                event.target.setAttribute("value", "deliveried");
 
             }
 
             console.log("success");
         },
-            (err) => console.log(`error happened getting todos ${err}`)
+            (err) => console.log(`error happened ${err}`)
         );
     }
 
-    deliveried(event,idorder){
-        
+    deliveried(event, idorder,status) {
+
+       if(this.orderservice.updatedeliverytime(idorder)){
+         console.log("success added delivery time");
+            event.target.setAttribute("class", "btn-success");
+            event.target.setAttribute("value", "done");
+       }else{
+           console.log("failed in add time");
+       }
+           
     }
 }
