@@ -37,7 +37,7 @@
                     <td>{{product.description}}</td>
                     <td>
                         <a [routerLink]="['/products/edit',product.idproduct]" class="actionBtn" class="btn btn-success">Edit</a>
-                        <a [routerLink]="['/products/edit/quantity',product.idproduct]" class="actionBtn" class="btn btn-primary">Update Quantity</a>
+                        <a [routerLink]="['/products/edit/quantity',product.idproduct]" class="actionBtn" class="btn btn-primary">Add Quantity</a>
                         <button type="button" (click)="removeProduct(product.idproduct)" class="actionBtn" class="btn btn-danger">remove</button> 
                         
                     </td>
