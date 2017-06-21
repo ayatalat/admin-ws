@@ -52,7 +52,7 @@ export class AddProduct {
     
   }
   addProduct() {
-    if (this.productName != "" && this.productPrice !="" && this.productQuantity !="" && this.productImage !="" && this.productDescription !="") {
+    if (this.productName != "" && this.productPrice !="" && this.productQuantity !="" && this.productDescription !="") {
       console.log("in component");
       console.log(this.productName);
       this.subCategory = this.subcatservice.subCategories.filter((subcatagory: any) => subcatagory.name == this.selectedoption);

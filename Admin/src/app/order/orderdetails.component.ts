@@ -9,14 +9,11 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
     templateUrl: './orderdetails.component.html'
 })
 export class OrderDetails {
-    productNames: any;
+
     id: number;
     sub;
     orderdetails: any = [];
     constructor(private orderservice: OrderService, private activatedRoute: ActivatedRoute, private loginService: LoginService, private http: Http, private router: Router) {
-
-        // this.getorderdetails();
-        // this.getproductname();
     }
     ngOnInit() {
         this.loginService.checkCredentials();
@@ -24,7 +21,7 @@ export class OrderDetails {
             this.id = +params['id'];
             console.log(this.id);
             this.getorderdetails();
-            this.getproductname();
+           
 
         });
     }
@@ -43,16 +40,5 @@ export class OrderDetails {
         return this.orderdetails;
     }
 
-    getproductname() {
-        this.orderservice.getproductName(this.id).subscribe(data => {
-            this.productNames = data
-            console.log(this.productNames);
-        },
-            (err) => console.log(`error happened getting todos ${err}`)
-        );
-    }
-
-    get ProductNames(){
-        return this.productNames;  
-    }
+   
 }

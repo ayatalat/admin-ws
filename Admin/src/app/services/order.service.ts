@@ -8,10 +8,12 @@ import 'rxjs/add/operator/map';
 export class OrderService {
     public orders: any = [];
     orderdetails: any = [];
+        homeorders:any=[];
 
     orderUrl = "https://storewebservice.herokuapp.com/orders";
     constructor(private http: Http, private activatedRoute: ActivatedRoute) {
         this.getAllOrders();
+        this.gethomeorders();
 
     }
 
@@ -40,11 +42,7 @@ export class OrderService {
         return this.http.get(this.orderUrl + "/" + "details" + "/" + orderid).map((response: Response) => response.json())
     }
 
-    getproductName(orderid) {
-        return this.http.get(this.orderUrl + "/" + "productname" + "/" + orderid).map((response: Response) => response.json())
-
-    }
-
+    
     updatedeliverytime(idorder){
         return this.http.put(this.orderUrl,idorder).map((response: Response) => response.json()).subscribe(data => {
                console.log("success in add time ")
@@ -53,4 +51,20 @@ export class OrderService {
             );
 
     }
+
+    gethomeorders(){
+        return this.http.get(this.orderUrl+"/"+"home"+"/"+"order"+"/"+"all").map((response:Response)=> response.json())
+        .subscribe(data => {
+              console.log(data);
+                this.homeorders=data;
+                console.log(this.homeorders);
+            },
+            (err) => console.log(`error happened getting todos ${err}`)
+            );
+    }
+
+    get homeOrders(){
+        return this.homeorders
+    }
+    
 }

@@ -4,26 +4,29 @@
 <!-- content section -->
 <section id="main-content">
     <section class="wrapper">
-        <div id="content-head"> 
-         <h2> orders </h2>
+        <div id="content-head">
+            <h2> orders </h2>
         </div>
         <div class="row">
             <table class="table table-bordered">
                 <tr id="main-tr">
                     <td> index </td>
+                    <td> user Name </td>
                     <td>Date Added</td>
-                    <td>Date Delivered</td>
-                    <td>Date selected </td>
-                    <td> selectedaddress</td>
-                    <td> selected mobile </td>
+                    <td>Date selected </td>  
+                    <td>status</td>
                 </tr>
                 <tr *ngFor="let order of listOrders();let index = index">
-                     <td id="id"><a [routerLink]="['/orders/orderdetails',order.idorder]">{{index+1}}</a></td>
+                    <td id="id">
+                        <a [routerLink]="['/orders/orderdetails',order.idorder]">{{index+1}}</a>
+                    </td>
+                    <td> {{order.name}} </td>
                     <td>{{order.ordertime | date:'short'}}</td>
-                    <td>{{order.deliverytime | date:'short'}}</td>
                     <td> {{order.selectedtime | date:'short'}} </td>
-                      <td> {{order.selectedaddress}} </td>
-                    <td> {{order.selectedmobile}} </td>
+                    <td *ngIf="order.status ==3"><input type="button" class="btn btn-danger" (click)="changestatus($event,order.idorder,4)" value="start delivery"></td>
+                    <td *ngIf="order.status ==4"> <input type="button" class="btn btn-warning" (click)="changestatus($event,order.idorder,5)" value="on the way">                        </td>
+                    <td *ngIf="order.status ==5"><input type="button" class="btn btn-success" (click)="deliveried($event,order.idorder,0)" value="deliveried"></td>
+                    <td *ngIf="order.status==0"><input type="button" class="btn btn-success" value="Done" /></td>
                 </tr>
             </table>
         </div>

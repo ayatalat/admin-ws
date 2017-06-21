@@ -1,0 +1,32 @@
+<app-Admin></app-Admin>
+
+<section id="main-content">
+    <section class="wrapper">
+<div class="row">
+     <div id="content-head">
+         <h2> New orders not served Yet </h2>
+        </div>
+            <table class="table table-bordered">
+                <tr id="main-tr">
+                    <td> index </td>
+                    <td> user name</td>
+                    <td>Date Added</td>
+                    <td>Date selected </td>  
+                    <td> status
+                   
+                </tr>
+                <tr *ngFor="let order of  gethomeorder();let index = index;">
+                    <td id="id">
+                      {{index+1}}
+                    </td>
+                    <td> {{order.name}}</td>
+                    <td>{{order.ordertime | date:'short'}}</td>
+                    <td> {{order.selectedtime | date:'short'}} </td>
+                    <td *ngIf="order.status ==3"><input type="button" class="btn btn-danger" (click)="changestatus($event,order.idorder,4)" value="start delivery"></td>
+                   
+                    
+                </tr>
+            </table>
+        </div>
+    </section>
+</section>

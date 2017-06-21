@@ -29,6 +29,7 @@ import { UserService } from "./services/user.service";
 import { UserComponent } from "./user/user.componet";
 import { showsingleorderComponent } from "./order/showorder.component";
 import { OrderDetails } from "app/order/orderdetails.component";
+import { HomeComponent } from "app/home/home.component";
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { OrderDetails } from "app/order/orderdetails.component";
     UserComponent,
     showsingleorderComponent,
     OrderDetails,
+    HomeComponent,
     AdminComponent
 
   ],
@@ -56,7 +58,7 @@ import { OrderDetails } from "app/order/orderdetails.component";
     BrowserModule,
     FormsModule,
     HttpModule,RouterModule.forRoot([
-      {path:"home" ,component:Product},
+      {path:"home" ,component:HomeComponent},
       {path:"catagory/list" ,component:CatComponent},
       {path:"catagory/add",component:AddCatagory},
       {path:"catagory/edit/:id",component:EditCatagory},
@@ -68,13 +70,13 @@ import { OrderDetails } from "app/order/orderdetails.component";
       {path: "orders/list", component:OrderComponent},
       {path:"orders/showorder/:id",component:showsingleorderComponent},
       {path: "login", component: AuthComponent },
-      {path: '', component: Product },
+      {path: '', component: HomeComponent },
       {path:'subcategory/list',component:listsubcategory},
       {path:'subcategory/edit/:id',component:EditsubCatagory},
       {path:'subcategory/add',component:AddsubCatagory},
         {path:'orders/orderdetails/:id',component:OrderDetails},
       {path:'users',component:UserComponent},
-      {path: '**', component: Product }
+      {path: '**', component: HomeComponent }
     ])
   ],
   providers: [CatService,ProductService,OrderService,LoginService,SubcategoryService,UserService],

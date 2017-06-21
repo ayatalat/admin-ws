@@ -8,16 +8,19 @@
          <h2> orders details </h2>
         </div>
         <div class="row">
-            <table class="table table-bordered">
+            <div *ngIf="OrderDetails.length<=0">
+                <h4 class="h4"> No product in this order </h4>
+            </div>
+            <table class="table table-bordered" *ngIf="OrderDetails.length >0">
                 <tr id="main-tr">
                     <td> index </td>
-                    <td>id product</td>
+                    <td> product Name</td>
                     <td>unit price</td>
                     <td> requested Quantity</td>
                 </tr>
                 <tr *ngFor="let order of OrderDetails;let index=index;">
                     <td> {{index+1}} </td>
-                    <!--<td>  {{name}} </td>-->
+                    <td>  {{order.name}} </td>
                     <td> {{ order.unitprice}} </td>
                     <td> {{order.quantity}}     </td>               
                 </tr>
