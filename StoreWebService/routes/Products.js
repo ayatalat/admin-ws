@@ -3,9 +3,6 @@ var router = express.Router();
 var Product = require('../models/Product');
 
 router.get('/:id?', function(req, res, next) {
-
-    if (req.params.id) {
-
         Product.getProductById(req.params.id, function(err, rows) {
             // console.log("param",req.params.id);
             if (err) {
@@ -15,8 +12,7 @@ router.get('/:id?', function(req, res, next) {
                 res.json(rows);
             }
         });
-    } else {
-
+router.get('/list', function(req, res, next) {
         Product.getAllProducts(function(err, rows) {
 
             if (err) {
@@ -27,7 +23,18 @@ router.get('/:id?', function(req, res, next) {
             }
 
         });
-    }
+});
+router.get('/list/productRemoved', function(req, res, next) {
+    Product.getRemovedProduct(function(err, rows) {
+            if (err) {
+                console.log("error",err);
+                res.json(err);
+            } else {
+                console.log("success");
+                res.json(rows);
+            }
+
+        });
 });
 router.get('/:categoryid?/:productid?', function(req, res, next) {
     console.log(req.params.categoryid);
