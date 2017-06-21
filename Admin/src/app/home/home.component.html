@@ -6,7 +6,10 @@
      <div id="content-head">
          <h2> New orders not served Yet </h2>
         </div>
-            <table class="table table-bordered">
+        <div *ngIf="gethomeorder().length<0">
+            <h3 class="h3" >No orders to serve </h3>
+            </div>
+            <table class="table table-bordered" *ngIf="gethomeorder().length >0">
                 <tr id="main-tr">
                     <td> index </td>
                     <td> user name</td>
