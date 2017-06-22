@@ -22,6 +22,8 @@ export class EditsubCatagory {
     newcategory:any;
     supCategory: any = [];
     imageurl='';
+    name;
+    descripation;
     constructor(private el: ElementRef, private catservice:CatService,private subcatservice:SubcategoryService, private loginService: LoginService, private http: Http, private router: ActivatedRoute,private route:Router) {
      console.log("category",this.catservice.categories);
 }
