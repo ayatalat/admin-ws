@@ -20,7 +20,7 @@
                 </tr>
                 <tr *ngFor="let order of  gethomeorder();let index = index;">
                     <td id="id">
-                      {{index+1}}
+                   <a [routerLink]="['/orders/orderdetails',order.idorder]">{{index+1}}</a>
                     </td>
                     <td> {{order.name}}</td>
                     <td>{{order.ordertime | date:'short'}}</td>
