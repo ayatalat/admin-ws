@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
- import {RouterModule} from '@angular/router';
+import {RouterModule} from '@angular/router';
 
  	
 import { AppComponent } from "./app.component";  
@@ -17,6 +17,7 @@ import { Product } from './product/product.component';
 import { AddProduct } from './product/addproduct.component';
 import { editProduct } from './product/editproduct.component';
 import { UpdateQuantity } from './product/updatequantity.component';
+import { RetriveRemovedProduct } from './product/retriveproduct.component';
 import { OrderComponent } from "./order/order.component";
 import { OrderService } from "./services/order.service";
 import { AdminComponent } from "./admin Component/admin.component";
@@ -30,6 +31,7 @@ import { UserComponent } from "./user/user.componet";
 import { showsingleorderComponent } from "./order/showorder.component";
 import { OrderDetails } from "app/order/orderdetails.component";
 import { HomeComponent } from "app/home/home.component";
+import {editRemovedProduct} from "./product/editremovedproduct.component";
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { HomeComponent } from "app/home/home.component";
     AddProduct,
     editProduct,
     UpdateQuantity,
+    RetriveRemovedProduct,
+    editRemovedProduct,
     AuthComponent,
     listsubcategory,
     AddsubCatagory,
@@ -67,15 +71,17 @@ import { HomeComponent } from "app/home/home.component";
       {path:"products/add" ,component:AddProduct},
       {path:"products/edit/:id" ,component:editProduct},
       {path:"products/edit/quantity/:id" ,component:UpdateQuantity},
+      {path:"products/list/all/productRemoved" ,component:RetriveRemovedProduct},
+      {path:"products/edit/removedproduct/:id" ,component:editRemovedProduct},
       {path: "orders/list", component:OrderComponent},
       {path:"orders/showorder/:id",component:showsingleorderComponent},
-      {path: "login", component: AuthComponent },
-      {path: '', component: HomeComponent },
       {path:'subcategory/list',component:listsubcategory},
       {path:'subcategory/edit/:id',component:EditsubCatagory},
       {path:'subcategory/add',component:AddsubCatagory},
-        {path:'orders/orderdetails/:id',component:OrderDetails},
+      {path:'orders/orderdetails/:id',component:OrderDetails},
       {path:'users',component:UserComponent},
+      {path: "login", component: AuthComponent },
+      {path: '', component: HomeComponent },
       {path: '**', component: HomeComponent }
     ])
   ],

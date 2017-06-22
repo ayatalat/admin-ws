@@ -1,0 +1,38 @@
+<app-Admin></app-Admin>
+    <!-- end header -->
+    <!-- content section -->
+
+<section id="main-content">
+    <section class="wrapper">
+        <div id="content-head"> 
+         <h1>Removed Products </h1>
+        </div>
+        
+        <div class="row">
+            <table class="table table-bordered">
+                <tr id="main-tr">
+                    <td> index </td>
+                    <td> name </td>
+                    <td> barcode </td>
+                    <td> price </td>
+                    <td>Quantity </td>
+                    <td> image </td>
+                    <td> description </td>
+                    <td> action </td>
+                </tr>
+                <tr id="tr" *ngFor="let Product of getRemovedProducts();let index = index">
+                    <td id="index">{{index+1}}</td>
+                    <td>{{Product.name}}</td>
+                    <td>{{Product.barcode}}</td>
+                    <td>{{Product.price}}</td>
+                    <td>{{Product.quantity}}</td>
+                    <td><img [src]="Product.image" style="width:100px; height:100px;" /></td>
+                    <td>{{Product.description}}</td>
+                    <td>
+                        <a [routerLink]="['/products/edit/removedproduct/',Product.idproduct]" class="actionBtn" class="btn btn-success">Edit</a> 
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</section>

@@ -6,12 +6,15 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProductService {
+    public removedProducts: any = [];
     public products: any = [];
+    
     storeUrl = "https://storewebservice.herokuapp.com/products";
-    //storeUrl = "localhost:3000/products";
     constructor(private http: Http, private router: Router) {
         console.log('product service constructor');
         this.getProducts();
+        this.getRemovedProduct();
+
     }
     getProducts(all: boolean = false) {
         return this.http.get(this.storeUrl).map((response: Response) => response.json())
@@ -106,7 +109,7 @@ export class ProductService {
                 .subscribe(
                 data => {
                     console.log("body",body);
-                    // return this.getProducts();
+                    return this.getProducts();
                 },
                 (err) => console.log(`errror ${err}`)
                 )
@@ -124,4 +127,14 @@ export class ProductService {
             err => console.log(`error happened getting products ${err}`)
             );
     }
+    getRemovedProduct(){
+        return this.http.get(this.storeUrl+"/"+"list"+"/"+"all"+"/"+"productRemoved").map((response: Response) => response.json())
+            .subscribe(data => {
+                this.removedProducts = data
+                console.log("adjfk",data);
+            },
+            err => console.log(`error happened getting products ${err}`)
+            );
+    };
+    
 }

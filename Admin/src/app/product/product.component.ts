@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { LoginService } from '../services/login.service';
 import {Router} from '@angular/router';
@@ -13,6 +13,7 @@ export class Product {
    selectedoption;
    subCategory;
    subcategoryid;
+
     constructor(private subcatservice:SubcategoryService,private productService: ProductService, private loginService: LoginService, private router:Router) { 
       this.getProducts();
      

@@ -6,11 +6,11 @@ import { Http, Response, Request } from '@angular/http';
 import { LoginService } from '../services/login.service';
 
 @Component({
-  selector: 'app-editproduct',
-  templateUrl: '../product/editproduct.component.html',
-  styleUrls:['../product/editproduct.component.css']
+  selector: 'app-editremovedproduct',
+  templateUrl: '../product/editremovedproduct.component.html',
+//   styleUrls:['../product/editproduct.component.css']
 })
-export class editProduct implements OnInit {
+export class editRemovedProduct implements OnInit {
 URL = 'https://storewebservice.herokuapp.com/';
      productnameEdit = "";
      productBarcode = "";
@@ -30,8 +30,8 @@ URL = 'https://storewebservice.herokuapp.com/';
     this.activatedRoute.params.subscribe((params: Params) => {
         this.id = +params['id'];
         console.log("id",this.id);
-        console.log(this.getProductById());      
-        this.product = this.getProductById();          
+        console.log(this.getRemovedProductById());      
+        this.product = this.getRemovedProductById();          
       });
   }
   upload() {
@@ -50,11 +50,10 @@ URL = 'https://storewebservice.herokuapp.com/';
                 (error) => alert(error))
         }
     }
-  getProductById()
-  {
-      return this.productService.products.filter((product:any)=>product.idproduct===this.id)[0];
-  }
-  
+    getRemovedProductById()
+    {
+        return this.productService.removedProducts.filter((product:any)=>product.idproduct===this.id)[0];
+    }
   updateProduct(newProduct)
     {
         console.log("from component");
@@ -62,8 +61,5 @@ URL = 'https://storewebservice.herokuapp.com/';
          this.productService.updateProduct(newProduct.idproduct,newProduct.name,newProduct.barcode,newProduct.price,newProduct.quantity,this.imageurl,newProduct.description,newProduct.status);
          this.router.navigate(['products/list']); 
     }
-//     getRemovedProductById()
-//   {
-//       return this.productService.removedProducts.filter((product:any)=>product.idproduct===this.id)[0];
-//   }
+
 }
