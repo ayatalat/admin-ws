@@ -19,18 +19,18 @@
             <table class="table table-bordered" >
                 <tr id="main-tr" style="padding:0px " >
                     <td > index </td>
-                    <td style=" width:100px;"> name </td>
+                    <td style=" width:70px;"> name </td>
                     <td> barcode </td>
                     <td> price </td>
                     <td>Quantity </td>
                     <td> image </td>
                     <td style=" width:230px; padding:0px; "> description </td>
-                    <td style=" width:260px; "> action </td>
+                    <td style=" width:300px; "> action </td>
                 </tr>
                 <tr id="tr" *ngFor="let product of getProducts();let index = index">
                     <td id="index">{{index+1}}</td>
                     <td >
-                        <div  style=" width:100px;">
+                        <div  style=" width:70px;">
                                 {{product.name}}
                         </div>
                     </td>
@@ -48,7 +48,7 @@
                         
                             <a [routerLink]="['/products/edit',product.idproduct]" class="actionBtn" class="btn btn-success">Edit</a> 
                             <button type="button" (click)="removeProduct(product.idproduct)" class="actionBtn" class="btn btn-danger">remove</button> 
-                            <a [routerLink]="['/products/edit/quantity',product.idproduct]" class="actionBtnbottom" class="btn btn-primary">Add Quantity</a>
+                            <a [routerLink]="['/products/edit/quantity',product.idproduct]" class="actionBtn" class="btn btn-primary">Add Quantity</a>
                      </td>
                     </div>
                 </tr>
