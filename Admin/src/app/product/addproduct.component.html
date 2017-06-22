@@ -9,6 +9,7 @@
     <div class="form-group col-md-5 col-md-offset-4"  style="margin-top:30px;">
         <label for="exampleInputEmail1" class="addCatLabel"> choose sub Categories</label>
         <select class="form-control" id="sel1" [ngModel]="selectedoption" (ngModelChange)="onChange($event)">
+            <option> subCategories </option>
             <option *ngFor="let subcatagory of ListsubCategory()">
                     {{subcatagory.name}}
             </option>

@@ -57,9 +57,17 @@ URL = 'https://storewebservice.herokuapp.com/';
   updateProduct(newProduct)
     {
         console.log("from component");
-        console.log(newProduct.name);
-         this.productService.updateProduct(newProduct.idproduct,newProduct.name,newProduct.barcode,newProduct.price,newProduct.quantity,this.imageurl,newProduct.description,newProduct.status);
-         this.router.navigate(['products/list']); 
+        console.log("zodvkl",this.imageurl);
+        if(this.imageurl == ""){
+            this.imageurl = this.product.image;
+            console.log("image",this.imageurl);
+            this.productService.updateProduct(newProduct.idproduct,newProduct.name,newProduct.barcode,newProduct.price,newProduct.quantity,this.imageurl,newProduct.description,newProduct.status);
+            this.router.navigate(['products/list']); 
+        }else{
+            this.productService.updateProduct(newProduct.idproduct,newProduct.name,newProduct.barcode,newProduct.price,newProduct.quantity,this.imageurl,newProduct.description,newProduct.status);
+            this.router.navigate(['products/list']); 
+        }
     }
+
 
 }

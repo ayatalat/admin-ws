@@ -46,7 +46,12 @@ border: none;
 .navbar-fixed-top, .navbar-fixed-bottom
 {
     background-color: #084fa3;
+		 
 }
+.row{
+	font-size: 15px;
+}
+
 #li-logout{
   -webkit-text-fill-color: white;
   margin-top: 10px;

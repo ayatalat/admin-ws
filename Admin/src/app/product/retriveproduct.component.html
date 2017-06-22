@@ -12,24 +12,32 @@
             <table class="table table-bordered">
                 <tr id="main-tr">
                     <td> index </td>
-                    <td> name </td>
+                    <td style=" width:100px;"> name </td>
                     <td> barcode </td>
                     <td> price </td>
                     <td>Quantity </td>
                     <td> image </td>
-                    <td> description </td>
-                    <td> action </td>
+                    <td style=" width:230px; padding:0px; "> description </td>
+                    <td style=" width:260px; "> action </td>
                 </tr>
                 <tr id="tr" *ngFor="let Product of getRemovedProducts();let index = index">
                     <td id="index">{{index+1}}</td>
-                    <td>{{Product.name}}</td>
+                    <td >
+                        <div  style=" width:100px;">
+                                {{Product.name}}
+                        </div>
+                    </td>
                     <td>{{Product.barcode}}</td>
                     <td>{{Product.price}}</td>
                     <td>{{Product.quantity}}</td>
                     <td><img [src]="Product.image" style="width:100px; height:100px;" /></td>
-                    <td>{{Product.description}}</td>
+                    <td >
+                        <div style="height:150px; width:230px;text-align:center; padding-top:0px;overflow: scroll;">
+                            {{Product.description}}
+                        </div>
+                    </td>
                     <td>
-                        <a [routerLink]="['/products/edit/removedproduct/',Product.idproduct]" class="actionBtn" class="btn btn-success">Edit</a> 
+                        <a [routerLink]="['/products/edit/removedproduct/',Product.idproduct]" class="actionBtn" class="btn btn-success">Edit & undelete</a> 
                     </td>
                 </tr>
             </table>

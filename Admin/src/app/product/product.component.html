@@ -15,32 +15,42 @@
             </option>
         </select>
     </div>
-        <div class="row">
-            <table class="table table-bordered">
-                <tr id="main-tr">
-                    <td> index </td>
-                    <td> name </td>
+        <div class="row"  style="padding:0px">
+            <table class="table table-bordered" >
+                <tr id="main-tr" style="padding:0px " >
+                    <td > index </td>
+                    <td style=" width:100px;"> name </td>
                     <td> barcode </td>
                     <td> price </td>
                     <td>Quantity </td>
                     <td> image </td>
-                    <td> description </td>
-                    <td> action </td>
+                    <td style=" width:230px; padding:0px; "> description </td>
+                    <td style=" width:260px; "> action </td>
                 </tr>
                 <tr id="tr" *ngFor="let product of getProducts();let index = index">
                     <td id="index">{{index+1}}</td>
-                    <td>{{product.name}}</td>
+                    <td >
+                        <div  style=" width:100px;">
+                                {{product.name}}
+                        </div>
+                    </td>
                     <td>{{product.barcode}}</td>
                     <td>{{product.price}}</td>
                     <td>{{product.quantity}}</td>
                     <td><img [src]="product.image" style="width:100px; height:100px;" /></td>
-                    <td>{{product.description}}</td>
-                    <td>
-                        <a [routerLink]="['/products/edit',product.idproduct]" class="actionBtn" class="btn btn-success">Edit</a>
-                        <a [routerLink]="['/products/edit/quantity',product.idproduct]" class="actionBtn" class="btn btn-primary">Add Quantity</a>
-                        <button type="button" (click)="removeProduct(product.idproduct)" class="actionBtn" class="btn btn-danger">remove</button> 
-                        
+                    <td >
+                        <div style="height:150px; width:230px;text-align:center; padding-top:0px;overflow: scroll;">
+                            {{product.description}}
+                        </div>
                     </td>
+                    <div  >
+                        <td style=" height:150px; padding-top:50px; padding-left:10px">
+                        
+                            <a [routerLink]="['/products/edit',product.idproduct]" class="actionBtn" class="btn btn-success">Edit</a> 
+                            <button type="button" (click)="removeProduct(product.idproduct)" class="actionBtn" class="btn btn-danger">remove</button> 
+                            <a [routerLink]="['/products/edit/quantity',product.idproduct]" class="actionBtnbottom" class="btn btn-primary">Add Quantity</a>
+                     </td>
+                    </div>
                 </tr>
             </table>
         </div>
