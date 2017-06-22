@@ -22,8 +22,9 @@ export class EditsubCatagory {
     newcategory:any;
     supCategory: any = [];
     imageurl='';
-    name;
-    descripation;
+    catname='';
+    descr='';
+    subcategory:any;
     constructor(private el: ElementRef, private catservice:CatService,private subcatservice:SubcategoryService, private loginService: LoginService, private http: Http, private router: ActivatedRoute,private route:Router) {
      console.log("category",this.catservice.categories);
 }
@@ -32,9 +33,15 @@ export class EditsubCatagory {
         this.sub = this.router.params.subscribe(params => {
             this.id = +params['id'];
             console.log("id",this.id);
-            
+            this.subcategory=this.getsubcategory();
+            console.log(this.subcategory);
         });
     }
+
+    getsubcategory()
+  {
+      return this.subcatservice.subCategories.filter((subcategory:any)=>subcategory.idcategory===this.id)[0];
+  }
     upload() {
         let inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#photo');
         let fileCount: number = inputEl.files.length;

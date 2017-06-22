@@ -17,6 +17,8 @@ export class EditCatagory {
     private sub: any;
     id: number;
     category: any = [];
+    catname='';
+    descr='';
     constructor(private el: ElementRef, private catservice: CatService, private loginService: LoginService, private http: Http, private router: ActivatedRoute, private route: Router) {
     }
     ngOnInit() {
@@ -25,6 +27,7 @@ export class EditCatagory {
             this.id = +params['id'];
             console.log(this.id);
             this.category = this.getCategoryById();
+            console.log(this.category);
 
         });
     }

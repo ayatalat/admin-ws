@@ -6,13 +6,13 @@
     <div class="row" style="margin-top:15px;">
     <div class="form-group col-md-5 col-md-offset-4">
         <label for="newCatagory" class="addCatLabel">Name</label>
-        <input type="text" name="catname" class="form-control" placeholder="name" [(ngModel)]="name" #catname="ngModel" />
+        <input type="text" name="catname" class="form-control" placeholder="name" [(ngModel)]="subcategory.name" #catname="ngModel" />
     </div>
     </div>
     <div class="row">
         <div class="form-group col-md-5 col-md-offset-4">
             <label for="descCatagory" class="addCatLabel">Descriptation</label>
-            <input type="text" name="descr" class="form-control" placeholder="descripation" [(ngModel)]="descripation" #desc="ngModel"
+            <input type="text" name="descr" class="form-control" placeholder="descripation" [(ngModel)]="subcategory.categorydesc" #desc="ngModel"
             />
         </div>
     </div>
