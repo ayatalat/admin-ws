@@ -4,10 +4,11 @@
 <!-- content section -->
 <section id="main-content">
     <section class="wrapper">
-        <div id="content-head">
+        <!--<div id="content-head">
          <h2> subCategories </h2>
-        </div>
-         <div class="form-group col-md-5 col-md-offset-4"  style="margin-top:15px;">
+        </div>-->
+         <div class="form-group col-md-5 col-md-offset-4"  style="margin-top:-10px;">
+            <input style="margin-bottom:10px;" type="search" placeholder="Search"  [(ngModel)]="term"> 
         <select class="form-control" id="sel1" [ngModel]="selectedoption" (ngModelChange)="onChange($event)">
           <option> choose SubCategories </option>
           
@@ -27,7 +28,7 @@
                     <td > action </td>
                    
                 </tr>
-                <tr *ngFor="let subcategory of ListsubCategory(); let index = index">
+                <tr *ngFor="let subcategory of ListsubCategory()|filter:term ; let index = index">
                     <td id="index">{{index+1}}</td>
                     <td >
                         <div >
