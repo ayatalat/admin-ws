@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
 
- 	
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AppComponent } from "./app.component";  
 import { CatService } from "./services/catagory.service";
 import { CatComponent } from "./category/category.component";
@@ -35,6 +35,7 @@ import {editRemovedProduct} from "./product/editremovedproduct.component";
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     CatComponent,
     AddCatagory,
@@ -59,6 +60,7 @@ import {editRemovedProduct} from "./product/editremovedproduct.component";
 
   ],
   imports: [
+    Ng2SearchPipeModule,
     BrowserModule,
     FormsModule,
     HttpModule,RouterModule.forRoot([

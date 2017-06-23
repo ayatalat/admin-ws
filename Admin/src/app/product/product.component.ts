@@ -14,29 +14,26 @@ export class Product {
   subCategory;
   subcategoryid;
   barcodes: any = [];
-
+  //barcodeArray: any = [];
+  i :any ;
   constructor(private subcatservice: SubcategoryService, private productService: ProductService, private loginService: LoginService, private router: Router) {
     this.getProducts();
-    console.log("get products", this.getProducts());
-    //this.getBarcodes();
-    //  console.log("get barcodes from constructor",this.getBarcodes());
-
-
   }
   ngOnInit() {
     this.loginService.checkCredentials();
 
   }
   getProducts() {
-    this.barcodes = this.productService.products;
-    console.log("barcodes aya", this.barcodes);
+    
+     //this.barcodes=this.productService.products;
+     //for (this.i = 0; this.i< this.barcodes.length; this.i++)
+    //{
+      //this.barcodeArray = this.barcodes[this.i].barcode;
+    //}
+    //console.log("barc", this.barcodeArray);
     return this.productService.products;
   }
-  //getBarcodes()
-  // {
 
-  //   console.log("bar",this.barcodes);
-  // }
   removeProduct(removeid: any) {
     console.log(removeid);
     this.productService.removeProduct(removeid);

@@ -5,10 +5,11 @@ nes (56 sloc)  2.64 KB
 
 <section id="main-content">
     <section class="wrapper">
-        <div id="content-head"> 
-         <h1> Products </h1>
-        </div>
-        <div class="form-group col-md-5 col-md-offset-4"  style="margin-top:15px;">
+        <!--<div style="width:150px; height:50px; margin-top:-50px;" >
+            <input style="margin-right:40%;" type="search" placeholder="Search"  [(ngModel)]="term">
+        </div> -->
+        <div class="form-group col-md-5 col-md-offset-4" style="margin-top:-10px;" >
+            <input style="margin-bottom:10px;" type="search" placeholder="Search"  [(ngModel)]="term">
         <select class="form-control" id="sel1" [ngModel]="selectedoption" (ngModelChange)="onChange($event)">
            <option> choose SubCategories </option>
             <option *ngFor="let subcatagory of ListsubCategory()">
@@ -17,7 +18,11 @@ nes (56 sloc)  2.64 KB
         </select>
     </div>
         <div class="row"  style="padding:0px">
+            
             <table class="table table-bordered" >
+                
+	        
+    
                 <tr id="main-tr" style="padding:0px " >
                     <td > index </td>
                     <td style=" width:70px;"> name </td>
@@ -28,7 +33,8 @@ nes (56 sloc)  2.64 KB
                     <td style=" width:230px; padding:0px; "> description </td>
                     <td style=" width:300px; "> action </td>
                 </tr>
-                <tr id="tr" *ngFor="let product of getProducts();let index = index">
+                <tr id="tr" *ngFor="let product of getProducts()|filter:term ;let index = index">
+                    
                     <td id="index">{{index+1}}</td>
                     <td >
                         <div  style=" width:70px;">
