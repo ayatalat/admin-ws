@@ -19,6 +19,7 @@ export class EditCatagory {
     category: any = [];
     catname='';
     descr='';
+    error=false;
     constructor(private el: ElementRef, private catservice: CatService, private loginService: LoginService, private http: Http, private router: ActivatedRoute, private route: Router) {
     }
     ngOnInit() {
@@ -53,12 +54,16 @@ export class EditCatagory {
 
 
 
-    EditCatagory(name: string, desc: string) {
-        if (name != '' && desc != '') {
-            this.catservice.EditCatagory(this.id, name, desc, this.imageurl);
-            this.route.navigate(['/catagory/list'])
+    EditCatagory(name: string, desc: string,image:any) {
+        if (name != '' && desc != '' && image !='') {
+            console.log("vaid")
+           
+           this.catservice.EditCatagory(this.id, name, desc, this.imageurl);
+           this.route.navigate(['/catagory/list'])
         }else{
-            console.log('invaild data');
+            console.log("incroorect");
+            this.error=true;
+            
         }
 
 
