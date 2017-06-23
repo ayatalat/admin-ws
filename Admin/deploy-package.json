@@ -1,0 +1,16 @@
+{
+"dependencies": {
+"bootstrap": "4.0.0-alpha.4",
+"font-awesome": "4.7.0"
+},
+"devDependencies": {
+"express": "4.14.0",
+"concurrently": "2.2.0",
+
+},
+
+
+"scripts": {
+"start": "concurrently \"npm run express\" "
+}
+}

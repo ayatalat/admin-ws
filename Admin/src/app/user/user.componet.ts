@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
     templateUrl: './user.component.html'
 })
 export class UserComponent {
+    username;
+    selecteduser;
     constructor(private userservice:UserService,private loginService: LoginService, private http: Http, private router: Router) {
     }
     ngOnInit(){
@@ -17,4 +19,5 @@ export class UserComponent {
     getusers(){
       return   this.userservice.Users;
     }
+
 }
