@@ -20,7 +20,6 @@ export class ProductService {
         return this.http.get(this.storeUrl).map((response: Response) => response.json())
             .subscribe(data => {
                 this.products = data
-                console.log("dad",data);
                 console.log("pro",this.products);
             },
             err => console.log(`error happened getting products ${err}`)

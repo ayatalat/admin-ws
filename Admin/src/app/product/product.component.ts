@@ -13,18 +13,27 @@ export class Product {
    selectedoption;
    subCategory;
    subcategoryid;
+   barcodes :any = [];
 
     constructor(private subcatservice:SubcategoryService,private productService: ProductService, private loginService: LoginService, private router:Router) { 
       this.getProducts();
+             console.log("get products",this.getProducts());
+      this.getBarcodes();
+            console.log("get barcodes from constructor",this.getBarcodes());
      
   }
   ngOnInit(){
        this.loginService.checkCredentials();
+
     }
   getProducts()
   {
-    
-   return this.productService.products;
+    return this.productService.products;
+  }
+  getBarcodes()
+  {
+   this.barcodes= this.productService.products;
+   console.log("bar",this.barcodes);
   }
   removeProduct(removeid:any)
   {
