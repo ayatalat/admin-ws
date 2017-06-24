@@ -60,7 +60,7 @@ import {editRemovedProduct} from "./product/editremovedproduct.component";
 
   ],
   imports: [
-    Ng2SearchPipeModule,
+  Ng2SearchPipeModule,
     BrowserModule,
     FormsModule,
     HttpModule,RouterModule.forRoot([

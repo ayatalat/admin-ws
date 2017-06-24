@@ -7,6 +7,7 @@
         <div  style="margin-top:-10px;" >
             <input style="margin-bottom:10px;" type="search" placeholder="Search"  [(ngModel)]="term">
         </div>
+        
         <div class="row" style="padding:0px">
             <table class="table table-bordered">
                 <tr id="main-tr" style="padding:0px ">
@@ -14,9 +15,9 @@
                     <td style=" width:100px;"> name </td>
                     <td> image </td>
                     <td > description </td>
-                    <td style=" width:260px; "> action </td>
+                    <td style="width:260px;"> action </td>
                 </tr>
-                <tr *ngFor="let category of ListCategory();let index = index" >
+                <tr *ngFor="let category of ListCategory()|filter:term ;let index = index" >
                      <td id="index" style="text-align:center">{{index+1}}</td>
                     <td > 
                         <div  style=" width:100px;">
